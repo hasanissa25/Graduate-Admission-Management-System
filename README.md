@@ -7,7 +7,7 @@ Graduate Admissions Management System
 ##Project Description
 Applicants submit their file containing their personal info, their desired field of research, a list of profs they want to work with, and various documents such as their CV, a copy of their diploma, grade audit, by a certain deadline. Profs submit a profile specifying their fields of research. The applicant files can be filtered/selected by an administrator. Those that are considered good enough are routed to profs for evaluation by a deadline. Profs receive an email notification to go check the list of new applicants assigned to them. They evaluate the student by studying their application info, and enter their assessment: “don’t recommend for admission”, “recommend but not interested in supervision”, “recommend but no funding”, “recommend and yes to funding”. The admin can then view the recommendation of the profs and make a decision.
 
-###Overall Workflow 
+### Overall Workflow 
 1. An Applicant creates an account
 1. Applicant submits their file with their corresponding information
 1. A Professor submits their profile specifying their fields of research
@@ -17,31 +17,31 @@ Applicants submit their file containing their personal info, their desired field
 1. Professor reviews the applications of each applicant, and make an evaluation decision for them.
 1. Administrator views the recommendation of the professor and makes a decision.
   
-###List of project Use Cases
-####List of actors:
+### List of project Use Cases
+#### List of actors:
 * Applicant
 * Professor
 * Administrator 
 
-####Use Case 1: Create Account 
+#### Use Case 1: Create Account 
 Primary Actor: Applicant , Professor , Administrator
 
-####Use Case 2: Login
+#### Use Case 2: Login
 Primary Actor: Applicant or Professor or Administrator
 
-####Use Case 3: Submit Applications
+#### Use Case 3: Submit Applications
 Primary Actor: Applicant
 
-####Use Case 4: Manage Professor Profile
+#### Use Case 4: Manage Professor Profile
 Primary Actor: Professor
 
-####Use Case 5: Screen Applicants
+#### Use Case 5: Screen Applicants
 Primary Actor: Administrator
 
-####Use Case 6: Evaluate Applicants
+#### Use Case 6: Evaluate Applicants
 Primary Actor: Professor
 
-####Use Case 7: Make Final Decision on Applications
+#### Use Case 7: Make Final Decision on Applications
 Primary Actor: Administrator
 
 

@@ -1,3 +1,4 @@
+![](https://travis-ci.com/hasanissa25/GAMS.svg?token=HEzWgsEdthBJKxtEKe9t&branch=master)
 # GAMS
 # SYSC4806 - Group 3
 

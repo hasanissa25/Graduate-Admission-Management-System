@@ -47,5 +47,6 @@ Primary Actor: Administrator
 
 
 ## Project Deliverable 1:
-* Submit use case 1, and 2.
 * Set up project; Travis CI, Heroku, and GitHub.
+* Applicant Login, Professor Login, Professor Creates a Field Of Research, Applicant can view field of research.
+

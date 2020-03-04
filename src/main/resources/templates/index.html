@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>GAMS</title>
-</head>
-<body>
-<p>Hello world!</p>
-<p>NEW CHANGE, MAKE SURE YOU TEST FIRST</p>
-<a href="/app">Login</a>
-<br/>
-<a href="/signup">Sign up</a>
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<div th:fragment="index">
+    <div class="mt-5">
+        <div class="row">
+            <div class="mx-auto">
+                <h1><a class="nav-link" sec:authorize="hasAuthority('PROFESSOR')" href="createProject.html" th:href="@{/createProject}">Create a new Field Of Study</a></h1>
+                <h1><a class="nav-link" href="projects.html" th:href="@{/projects}">Current Fields Of Study</a></h1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 </html>

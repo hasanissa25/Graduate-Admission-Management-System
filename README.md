@@ -24,25 +24,25 @@ Applicants submit their file containing their personal info, their desired field
 * Professor
 * Administrator 
 
-#### Use Case 1: Create Account 
+#### Use Case 1: User Creates Account 
 Primary Actor: Applicant , Professor , Administrator
 
-#### Use Case 2: Login
+#### Use Case 2: User Logs in
 Primary Actor: Applicant or Professor or Administrator
 
-#### Use Case 3: Submit Applications
+#### Use Case 3: Applicant Submits Application
 Primary Actor: Applicant
 
-#### Use Case 4: Manage Professor Profile
+#### Use Case 4: Professor Manages Profile
 Primary Actor: Professor
 
-#### Use Case 5: Screen Applicants
+#### Use Case 5: Administrator Screens Applicants
 Primary Actor: Administrator
 
-#### Use Case 6: Evaluate Applicants
+#### Use Case 6: Administrator Evaluates Applicants
 Primary Actor: Professor
 
-#### Use Case 7: Make Final Decision on Applications
+#### Use Case 7: Administrator Makes Final Decision on Applications
 Primary Actor: Administrator
 
 

@@ -73,6 +73,10 @@
         <script> $("#pageTitle").html("Graduate Admission Project"); </script>
         <div th:replace="index"/>
     </div>
+    <div th:case="'studentProfile'">
+        <script> $("#pageTitle").html("Student Profile"); </script>
+        <div th:replace="studentProfile"/>
+    </div>
 </td>
 
 </body>

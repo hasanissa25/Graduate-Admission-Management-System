@@ -2,11 +2,11 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org" >
 
 
-<div th:fragment="CreateProjects">
+<div th:fragment="CreateFORs">
     <div class="container-fluid py-2">
         <div class="row">
             <div class="col-md-9 mx-auto">
-                <form class="card card-body" th:action="@{/createProject}" th:object="${project}" method="post">
+                <form class="card card-body" th:action="@{/createFOR}" th:object="${research}" method="post">
                     <h3>Create a new Field of Research: </h3>
                     <fieldset>
                         <div class="form-group">
@@ -22,6 +22,7 @@
             </div>
         </div>
     </div>
+</div>
 
 
 

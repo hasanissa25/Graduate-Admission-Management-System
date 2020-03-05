@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<div class="mx-auto py-5" style="width: 95%;">
+    <p th:if="${addError}" class="error text-danger text-center"> Student was not added. ERROR</p>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th> Fields of Research </th>
+
+            <th> Professor</th>
+            <th> </th>
+
+
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="res : ${research}">
+            <td><span th:text="${res.getName()}">Title</span></td>
+            <!-- <td><span th:text="${proj.getDescription()}">Descrpition</span></td> -->
+
+            <td>
+                <div th:switch="${res.getProfessor()}">
+
+                    <span th:case="*"><span th:text="${res.getProfessor().getUsername()}">Professor</span></span>
+                </div>
+            </td>
+
+            <td>
+                <span id="details-button">
+                    <button class="btn btn-large btn-success" data-toggle="modal" data-target="#details" th:attr="data-target='#details'+${res.getName()}"> ACTIONS
+                    </button>
+                </span>
+            </td>
+            <div class="modal fade" th:id="details+${res.getName()}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><span th:text="${res.getName()}" ></span></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p th:text="${res.getDescription()}"></p>
+                            <p>Students:
+                                <span th:switch="${res.getStudents()}">
+                                    <span th:case="null">No Students currently in the research</span>
+                                    <span th:case="*"><span th:each="student : ${res.getStudents()}">
+                                        <span th:text="${student.getUsername()}">Students</span></span></span>
+                                </span></p>
+                            <p>Professor:
+                                <span th:switch="${res.getProfessor()}">
+                                        <span th:case="null">No Professor for this research</span>
+                                        <span th:case="*"><span th:text="${res.getProfessor().getUsername()}">Professor</span></span>
+                                     </span> </p>                            </button>
+
+
+                            <div class="modal-footer" th:switch="${res.isActive()}">
+                                <button hidden type="button" class="btn btn-success btn-block" sec:authorize="hasAuthority('PROFESSOR')">Edit</button>
+
+
+                                <form sec:authorize="hasAuthority('PROFESSOR')" th:action="@{/delete}" th:object="${delresearch}" method="post">
+                                    <input type="hidden" th:value="${res.getName()}" name="name"/>
+                                    <button type="submit" class=""> Delete</button>
+                                </form>
+                                <button type="button" class="btn btn-danger btn-default pull-left" data-dismiss="modal">Close</button>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </td>
+        </tr>
+        <tr th:lo>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>

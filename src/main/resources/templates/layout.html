@@ -25,10 +25,10 @@
                     <a class="nav-link" href="index.html" th:href="@{/}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="projects.html" th:href="@{/projects}"> Fields of Research </a>
+                    <a class="nav-link" href="fieldOfResearch.html" th:href="@{/fieldOfResearch}"> Fields of Research </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" sec:authorize="hasAuthority('PROFESSOR')" href="createProject.html" th:href="@{/createProject}">Create Fields of Research</a>
+                    <a class="nav-link" sec:authorize="hasAuthority('PROFESSOR')" href="createFOR.html" th:href="@{/createFOR}">Create Fields of Research</a>
                 </li>
 
             </ul>
@@ -61,13 +61,13 @@
         <script> $("#pageTitle").html("Login"); </script>
         <div th:replace="login"/>
     </span>
-    <span th:case="'createProject'">
+    <span th:case="'createFOR'">
         <script> $("#pageTitle").html("Create a field of study"); </script>
-        <div th:replace="createProject"/>
+        <div th:replace="createFOR"/>
     </span>
-    <span th:case="'projects'">
+    <span th:case="'fieldOfResearch'">
         <script> $("#pageTitle").html("Fields of study"); </script>
-        <div th:replace="projects"/>
+        <div th:replace="fieldOfResearch"/>
     </span>
     <div th:case="'index'">
         <script> $("#pageTitle").html("Graduate Admission Project"); </script>

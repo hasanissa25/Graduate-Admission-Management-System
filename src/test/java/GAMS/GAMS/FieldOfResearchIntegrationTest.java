@@ -34,26 +34,35 @@ public class FieldOfResearchIntegrationTest {
     @Autowired
     WebApplicationContext context;
 
-    @Test
-    public void navigateToResgistrationFormSuccessfully() throws Exception {
-        this.mockMvc.perform(get("/register")).andDo(print()).andExpect(status().isOk())
-                .andExpect(view().name("layout"))
-                .andExpect(model().attribute("user", hasProperty("username", nullValue())))
-                .andExpect(model().attribute("user", hasProperty("password", nullValue())))
-                .andExpect(model().attribute("user", hasProperty("confPassword", nullValue())));
-    }
-
-    @Test
-    public void viewCurrentFieldOfStudy() throws Exception {
-
+//    @Test
+//    public void viewFieldOfStudy() throws Exception {
+//        this.mockMvc.perform(get("/fieldOfResearch")).andDo(print()).andExpect(status().isOk())
+//                .andExpect(view().name("layout"))
+//                .andExpect(model().attribute("research", hasProperty("name", nullValue())))
+//                .andExpect(model().attribute("research", hasProperty("description", nullValue())));
+//    }
+//
+//    @Test
+    public void NavigateToCreateFieldOfStudy() throws Exception {
         this.mockMvc.perform(get("/createFOR")).andDo(print()).andExpect(status().isOk())
                 .andExpect(view().name("layout"))
-                .andExpect(model().attribute("user", hasProperty("name", nullValue())))
-                .andExpect(model().attribute("user", hasProperty("description", nullValue())));
+                .andExpect(model().attribute("research", hasProperty("name", nullValue())))
+                .andExpect(model().attribute("research", hasProperty("description", nullValue())));
     }
 
     @Test
-    public void createFieldOfStudy() throws Exception {
+    public void SubmitNewFieldofStudy() throws Exception {
+
+        mockMvc.perform(post("/createFOR")
+
+                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                .param("name", "testname")
+                .param("description", "testdescription")
+
+
+        ).andDo(print())
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:fieldOfResearch"));
 
     }
 
@@ -62,23 +71,11 @@ public class FieldOfResearchIntegrationTest {
         mockMvc.perform(post("/fieldOfResearch")
 
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("delete", "delresearch")
+                .param("delresearch", "testdelresearch")
 
         ).andDo(print())
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:fieldOfResearch"));
     }
 
-//    @SpringBootTest
-//    @AutoConfigureMockMvc
-//    public class AddressBookApplicationTests {
-//
-//        @Autowired
-//        private MockMvc mockMvc;
-//
-//        @Test
-//        public void shouldReturnDefaultMessage() throws Exception {
-//            this.mockMvc.perform(get("/1")).andDo(print()).andExpect(status().isOk());
-//        }
-//    }
 }

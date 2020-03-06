@@ -17,7 +17,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class Authenicate extends WebSecurityConfigurerAdapter{
 
-
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 

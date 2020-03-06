@@ -22,7 +22,6 @@ public class WelcomePageController{
     @RequestMapping("/")
     public String welcome(HttpServletResponse response, Model model){
 
-//        model.addAttribute("user", temp);
         model.addAttribute("view", "index");
         return "layout";
     }

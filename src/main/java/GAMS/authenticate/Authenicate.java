@@ -45,6 +45,8 @@ public class Authenicate extends WebSecurityConfigurerAdapter{
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login-logout")
                 .permitAll();
+                 http.csrf().disable();
+
     }
     @Bean
     public PasswordEncoder encoder() {

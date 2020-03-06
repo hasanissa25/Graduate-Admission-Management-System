@@ -12,11 +12,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+//This is the security Configuration
 
 @Configuration
 @EnableWebSecurity
 public class Authenicate extends WebSecurityConfigurerAdapter{
-
+    //this implements the interface to check if the username and password are in the database
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
@@ -25,7 +26,7 @@ public class Authenicate extends WebSecurityConfigurerAdapter{
             throws Exception {
         auth.userDetailsService(userDetailsService);
     }
-
+    //What endpoints do you need to be authenticated for.
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http
@@ -45,6 +46,8 @@ public class Authenicate extends WebSecurityConfigurerAdapter{
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login-logout")
                 .permitAll();
+                 http.csrf().disable();
+
     }
     @Bean
     public PasswordEncoder encoder() {

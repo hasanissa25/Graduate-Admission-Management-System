@@ -68,7 +68,7 @@ FieldOfResearch
 * numberStudents
 * professor
 * status
-*students
+* students
 
 EndUser
 
@@ -77,3 +77,6 @@ EndUser
 * password
 * role
 * username 
+
+![entityManagerFactory(EntityManagerFactoryBuilder)](https://user-images.githubusercontent.com/34280127/76048172-0d570900-5f33-11ea-9ebe-1bd790f0a385.png)
+

@@ -4,7 +4,7 @@ import GAMS.Crudrepository.EndUserRepo;
 import GAMS.entity.EndUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+//This is required by springboot to authenticate username and password for loging in
 @Service
 public class UserLoginService implements UserService {
 

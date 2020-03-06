@@ -23,10 +23,12 @@ public class FieldOfResearch implements Serializable {
     @Column(length=1024)
     private ArrayList<EndUser> students;
 
-    public FieldOfResearch(String tiny_house, String s, int i, Professor professor) {
+    public FieldOfResearch(String name,String description,Professor professor) {
+        this.name = name;
+        this.description=description;
+        this.professor=professor;
 
     }
-
 
     private enum Status {ACTIVE, INACTIVE}
     private Status status;

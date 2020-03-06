@@ -62,6 +62,7 @@ public class RegistrationController {
         }
         else{
             model.addAttribute("view", "registration");
+            model.addAttribute("user", user);
             model.addAttribute("regError", true);
             return "layout";
         }

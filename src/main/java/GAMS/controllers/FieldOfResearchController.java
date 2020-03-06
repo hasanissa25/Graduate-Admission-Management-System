@@ -43,7 +43,7 @@ public class FieldOfResearchController {
         EndUser user = userRepository.findByUsername(auth.getName());
 
         FieldOfResearch temp = researchRepository.findByName(research.getName());
-        if (temp == null){
+
             if (research.getProfessor()==null){
                 research.setProfessor(new Professor(user.getUsername(),user.getPassword(),user.getConfPassword(),null));
             }
@@ -55,12 +55,7 @@ public class FieldOfResearchController {
             research.activate();
             researchRepository.save(research);
             return "redirect:fieldOfResearch";
-        }else{
 
-            model.addAttribute("research",new FieldOfResearch());
-            model.addAttribute("view","createFOR");
-            return "layout";
-        }
 
     }
 

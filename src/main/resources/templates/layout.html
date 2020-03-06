@@ -77,6 +77,10 @@
         <script> $("#pageTitle").html("Student Profile"); </script>
         <div th:replace="studentProfile"/>
     </div>
+    <div th:case="'studentStatus'">
+        <script> $("#pageTitle").html("Student Status"); </script>
+        <div th:replace="studentStatus"/>
+    </div>
 </td>
 
 </body>

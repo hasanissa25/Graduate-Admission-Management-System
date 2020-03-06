@@ -1,6 +1,7 @@
 package GAMS.controllers;
 
 import GAMS.Crudrepository.EndUserRepo;
+import GAMS.Crudrepository.StudentRepo;
 import GAMS.entity.EndUser;
 import GAMS.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class StudentProfileController {
+public class StudentController {
 
     @Autowired
     EndUserRepo userRepository;
+
+    @Autowired
+    StudentRepo studentRepo;
 
     @GetMapping("/studentProfile")
     public String studentProfile(Model model, HttpServletRequest request) {
@@ -32,12 +36,12 @@ public class StudentProfileController {
     }
 
     @PostMapping("/studentProfile")
-    public String register(@ModelAttribute Student formStudent, Model model) {
+    public String saveProfile(@ModelAttribute Student formStudent, Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Student student = (Student) userRepository.findByUsername(auth.getName());
+        EndUser endUser = userRepository.findByUsername(auth.getName());
 
-        if(student == null){
-            // This is an error because the student is supposed to exist in DB
+        if(endUser == null){
+            // This is an error because the student is supposed to exist in DB (to be handled later)
 //            if(user.getPassword().equals(user.getConfPassword())){
 //
 //                user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -55,16 +59,26 @@ public class StudentProfileController {
             return "layout";
         }
         else{
-            student.setCv(formStudent.getCv());
-            student.setDiploma(formStudent.getDiploma());
-            student.setEmail(formStudent.getEmail());
-            student.setGradeAudit(formStudent.getGradeAudit());
+            formStudent.setConfPassword(endUser.getConfPassword());
+            formStudent.setPassword(endUser.getPassword());
+            formStudent.setUsername(endUser.getUsername());
+            formStudent.setRole(endUser.getRole());
 
-            userRepository.save(student);
+            studentRepo.save(formStudent);
 
             model.addAttribute("view", "index");
             return "layout";
         }
 
     }
+
+    @GetMapping("/studentStatus")
+    public String studentStatus(Model model, HttpServletRequest request) {
+
+        model.addAttribute("student", new Student());
+        model.addAttribute("view", "studentStatus");
+        return "layout";
+
+    }
+
 }

@@ -1,7 +1,9 @@
 package GAMS.entity;
 
+import javax.persistence.Entity;
 import java.io.Serializable;
 
+@Entity
 public class Student extends EndUser implements Serializable {
 
     private String email;

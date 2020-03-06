@@ -4,6 +4,10 @@
 
 Graduate Admissions Management System
 #### Hasan [@hasanissa25](https://github.com/hasanissa25)
+#### Amandeep Singh[@amandeepsingh5](https://github.com/amandeepsingh5)
+#### Zoha Mehdi 
+#### Tahereh Ghadiri Modarres
+#### Tashfiq Akhand
 
 ## Project Description
 Applicants submit their file containing their personal info, their desired field of research, a list of profs they want to work with, and various documents such as their CV, a copy of their diploma, grade audit, by a certain deadline. Profs submit a profile specifying their fields of research. The applicant files can be filtered/selected by an administrator. Those that are considered good enough are routed to profs for evaluation by a deadline. Profs receive an email notification to go check the list of new applicants assigned to them. They evaluate the student by studying their application info, and enter their assessment: “don’t recommend for admission”, “recommend but not interested in supervision”, “recommend but no funding”, “recommend and yes to funding”. The admin can then view the recommendation of the profs and make a decision.
@@ -46,7 +50,30 @@ Primary Actor: Professor
 Primary Actor: Administrator
 
 
-## Project Deliverable 1:
-* Set up project; Travis CI, Heroku, and GitHub.
-* Applicant Login, Professor Login, Professor Creates a Field Of Research, Applicant can view field of research.
+## Project Milestone 1:
 
+* Set up project; Travis CI, Heroku, and GitHub.
+* Functionality: Applicant Login, Professor Login, Professor Creates a Field Of Research, Applicant can view field of research.
+* the Kanban
+* Unit and Integration tests
+* the Issues and Code reviews 
+
+## Database Schema for Milestone 1:
+
+FieldOfResearch
+
+* id
+* description
+* name
+* numberStudents
+* professor
+* status
+*students
+
+EndUser
+
+* id
+* confPassword
+* password
+* role
+* username 

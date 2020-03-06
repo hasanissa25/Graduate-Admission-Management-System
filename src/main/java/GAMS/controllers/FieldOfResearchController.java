@@ -56,7 +56,9 @@ public class FieldOfResearchController {
             researchRepository.save(research);
             return "redirect:fieldOfResearch";
         }else{
-            model.addAttribute("view","createResearchs");
+
+            model.addAttribute("research",new FieldOfResearch());
+            model.addAttribute("view","createFOR");
             return "layout";
         }
 

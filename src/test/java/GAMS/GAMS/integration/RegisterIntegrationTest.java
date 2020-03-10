@@ -1,4 +1,4 @@
-package GAMS.GAMS;
+package GAMS.GAMS.integration;
 
 import GAMS.Application;
 import GAMS.entity.EndUser;

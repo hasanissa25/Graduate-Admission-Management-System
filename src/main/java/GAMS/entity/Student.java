@@ -13,6 +13,7 @@ public class Student extends EndUser implements Serializable {
 
     public Student() {
         super();
+        setRole(Role.STUDENT);
     }
 
     public Student(String username, String password, String confPassword) {

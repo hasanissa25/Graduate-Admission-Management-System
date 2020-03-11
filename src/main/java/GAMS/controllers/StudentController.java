@@ -26,7 +26,6 @@ public class StudentController {
         model.addAttribute("student", new Student());
         model.addAttribute("view", "studentProfile");
         return "layout";
-
     }
 
     @PostMapping("/studentProfile")
@@ -48,7 +47,7 @@ public class StudentController {
             userRepository.delete(endUser);
 
             model.addAttribute("view", "index");
-            return "layout";
+            return "redirect:";
         }
 
     }

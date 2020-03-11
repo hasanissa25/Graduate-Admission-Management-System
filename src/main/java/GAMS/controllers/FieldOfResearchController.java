@@ -96,4 +96,16 @@ public class FieldOfResearchController {
 
         return "redirect:fieldOfResearch";
     }
+
+    @PostMapping("/join")
+    public String joinResearch(Model model, FieldOfResearch joinResearch){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        EndUser user = userRepository.findByUsername(auth.getName());
+
+        FieldOfResearch temp = researchRepository.findByName(joinResearch.getName());
+        temp.addStudent(user);
+        researchRepository.save(temp);
+
+        return "redirect:fieldOfResearch";
+    }
 }

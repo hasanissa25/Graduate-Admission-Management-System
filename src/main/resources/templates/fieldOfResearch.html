@@ -66,9 +66,9 @@
                                     <input type="hidden" th:value="${res.getName()}" name="name"/>
                                     <button type="submit" class=""> Delete</button>
                                 </form>
-                                <form sec:authorize="hasAuthority('STUDENT')" th:action="@{/join}" th:object="${joinresearch}" method="post">
+                                <form sec:authorize="hasAuthority('STUDENT')" th:action="@{/select}" th:object="${selectresearch}" method="post">
                                     <input type="hidden" th:value="${res.getName()}" name="name"/>
-                                    <button type="submit" class="">Join</button>
+                                    <button type="submit" class="">Select</button>
                                 </form>
                                 <button type="button" class="btn btn-danger btn-default pull-left" data-dismiss="modal">Close</button>
 

@@ -97,8 +97,8 @@ public class FieldOfResearchController {
         return "redirect:fieldOfResearch";
     }
 
-    @PostMapping("/join")
-    public String joinResearch(Model model, FieldOfResearch joinResearch){
+    @PostMapping("/select")
+    public String selectResearch(Model model, FieldOfResearch joinResearch){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         EndUser user = userRepository.findByUsername(auth.getName());
 

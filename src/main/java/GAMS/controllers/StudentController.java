@@ -1,9 +1,12 @@
 package GAMS.controllers;
 
 import GAMS.Crudrepository.EndUserRepo;
+import GAMS.Crudrepository.FieldOfResearchRepo;
 import GAMS.entity.EndUser;
+import GAMS.entity.FieldOfResearch;
 import GAMS.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -13,12 +16,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class StudentController {
 
     @Autowired
     EndUserRepo userRepository;
+
+    @Autowired
+    FieldOfResearchRepo researchRepository;
+
 
     @GetMapping("/studentProfile")
     public String studentProfile(Model model, HttpServletRequest request) {
@@ -52,11 +61,27 @@ public class StudentController {
 
     }
 
-    @GetMapping("/studentStatus")
-    public String studentStatus(Model model, HttpServletRequest request) {
+    @GetMapping("/studentInfo")
+    public String studentInfo(Model model, HttpServletRequest request) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Student st;
+        try {
+            st = (Student) userRepository.findByUsername(auth.getName());
+        } catch (Exception ex) {
+            st = new Student();
+        }
 
-        model.addAttribute("student", new Student());
-        model.addAttribute("view", "studentStatus");
+        Iterable<FieldOfResearch> all = researchRepository.findAll();
+        List<FieldOfResearch> active = new ArrayList<>();
+        for(FieldOfResearch research : all){
+            if(research.hasStudent(auth.getName())){
+                active.add(research);
+            }
+        }
+
+        model.addAttribute("student", st);
+        model.addAttribute("selectedFOR", active);
+        model.addAttribute("view", "studentInfo");
         return "layout";
 
     }

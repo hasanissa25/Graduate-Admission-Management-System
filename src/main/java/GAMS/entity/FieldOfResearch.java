@@ -100,6 +100,15 @@ public class FieldOfResearch implements Serializable {
         return id;
     }
 
+    public boolean hasStudent(String name) {
+        for(EndUser user: this.students) {
+            if (user.getUsername().equals(name)) {
+                return true;
+            }
+        }
+         return false;
+    }
+
 
     public boolean addStudent(EndUser student){
 

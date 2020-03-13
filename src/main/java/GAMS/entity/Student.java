@@ -2,6 +2,7 @@ package GAMS.entity;
 
 import javax.persistence.Entity;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @Entity
 public class Student extends EndUser implements Serializable {

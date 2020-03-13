@@ -6,6 +6,7 @@ import GAMS.entity.Professor;
 import GAMS.Crudrepository.FieldOfResearchRepo;
 
 import GAMS.Crudrepository.EndUserRepo;
+import GAMS.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;

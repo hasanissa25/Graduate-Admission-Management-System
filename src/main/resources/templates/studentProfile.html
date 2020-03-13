@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div th:fragment="studentProfile">
+    <div class="container-fluid py-6">
+
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <form class="card card-body" th:action="@{/studentProfile}" th:object="${student}" method="post">
+                    <h3 class="text-center mb-4">Create Profile</h3>
+<!--                    <p th:if="${regError}" class="error text-danger text-center">This Username has already been taken.</p>-->
+<!--                    <p th:if="${pwError}" class="error text-danger text-center">The Passwords you have entered do not match.</p>-->
+                    <fieldset>
+                        <div class="form-group">
+                            <label>Email:</label>
+                            <input class="form-control input-lg" placeholder="Please Enter Your Email Address" name="name"
+                                   type="text" th:field="*{email}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>CV:</label>
+                            <input type="text" class="form-control input-lgt" placeholder="Please Select Your CV" name="cvFile" th:field="*{cv}">
+                        </div>
+                        <div class="form-group">
+                            <label>Diploma:</label>
+                            <input type="text" class="form-control input-lg" placeholder="Please Select Your Diploma" name="diplomaFile" th:field="*{diploma}">
+                        </div>
+                        <div class="form-group">
+                            <label>Grade Audit:</label>
+                            <input type="text" class="form-control input-lg" placeholder="Please Select Your Grade Audit" name="gradeFile" th:field="*{gradeAudit}">
+                        </div>
+
+                        <input class="btn btn-lg btn-primary btn-block" value="Save" type="submit">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div th:fragment="studentProfile">
+    <div class="container-fluid py-6">
+
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <form class="card card-body" th:action="@{/studentInfo}" th:object="${student}" method="post">
+                    <fieldset>
+                        <div class="form-group">
+                            <b>Email:</b>
+                            <span th:text="${student.getEmail()} ?: 'No Email found.'"></span>
+                        </div>
+                        <div class="form-group">
+                            <b>CV:</b>
+                            <span th:text="${student.getCv()} ?: 'No CV found.'"></span>
+                        </div>
+                        <div class="form-group">
+                            <b>Diploma:</b>
+                            <span th:text="${student.getDiploma()} ?: 'No Diploma found.'"></span>
+                        </div>
+                        <div class="form-group">
+                            <b>Grade Audit:</b>
+                            <span th:text="${student.getGradeAudit()} ?: 'No Grade Audit found.'"></span>
+                        </div>
+                        <div class="form-group">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th> Selected Fields of Research </th>
+                                    <th> Professors </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="res : ${selectedFOR}">
+                                        <td><span th:text="${res.getName()}"></span></td>
+                                    <td>
+                                        <div th:switch="${res.getProfessor()}">
+                                            <span th:case="*"><span th:text="${res.getProfessor().getUsername()}"></span></span>
+                                        </div>
+                                    </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <input class="btn btn-lg btn-primary btn-block" value="Apply" type="submit">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

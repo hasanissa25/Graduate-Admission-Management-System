@@ -16,12 +16,25 @@ public class UserRepositoryTest {
 
     @Autowired
     private EndUserRepo endUserRepo;
+    private EndUser user;
 
     @Test
-    public void findByUsernameTest() {
-        EndUser user = new EndUser("Hasan", "pass", "pass", EndUser.Role.STUDENT);
+    public void CreateStudentCheckRepoistory() {
+        EndUser user = new EndUser("Student", "pass", "pass", EndUser.Role.STUDENT);
         endUserRepo.save(user);
-        Assert.assertNotNull(endUserRepo.findByUsername("Hasan"));
+        Assert.assertNotNull(endUserRepo.findByUsername("Student"));
+    }
+    @Test
+    public void CreateProfessorCheckRepoistory() {
+        EndUser user = new EndUser("Professor", "pass", "pass", EndUser.Role.PROFESSOR);
+        endUserRepo.save(user);
+        Assert.assertNotNull(endUserRepo.findByUsername("Professor"));
+    }
+    @Test
+    public void CreateAdministratorCheckRepoistory() {
+        EndUser user = new EndUser("Admin", "pass", "pass", EndUser.Role.ADMINISTRATOR);
+        endUserRepo.save(user);
+        Assert.assertNotNull(endUserRepo.findByUsername("Admin"));
     }
 }
 

@@ -1,8 +1,7 @@
 ![](https://travis-ci.com/hasanissa25/GAMS.svg?token=HEzWgsEdthBJKxtEKe9t&branch=master)
-# GAMS
+# Graduate Admissions Management System 
 # SYSC4806 - Group 3
-
-Graduate Admissions Management System
+# Deployment : https://group3-gams.herokuapp.com/login
 #### Hasan [@hasanissa25](https://github.com/hasanissa25)
 #### Amandeep Singh[@amandeepsingh5](https://github.com/amandeepsingh5)
 #### Zoha Mehdi 
@@ -80,3 +79,12 @@ EndUser
 
 ![entityManagerFactory(EntityManagerFactoryBuilder)](https://user-images.githubusercontent.com/34280127/76048172-0d570900-5f33-11ea-9ebe-1bd790f0a385.png)
 
+## Project Milestone 2:
+* Applicant Functionality: 
+    * Create a profile
+    * Join a Professors Field Of Research. 
+* Administrator Functionality:
+    * Register an account
+    * Login to the system
+* Unit and Integration Tests for each new functionality
+* Issues and Code Reviews 

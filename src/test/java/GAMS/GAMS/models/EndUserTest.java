@@ -6,40 +6,95 @@ import static org.junit.Assert.*;
 
 public class EndUserTest {
 
-    EndUser user = new EndUser("Hasan","pass", "pass",  EndUser.Role.STUDENT);
+    EndUser student = new EndUser("Hasan","pass", "pass",  EndUser.Role.STUDENT);
+    EndUser prof = new EndUser("prof","pass", "pass",  EndUser.Role.PROFESSOR);
+    EndUser admin = new EndUser("admin","pass", "pass",  EndUser.Role.ADMINISTRATOR);
 
     @Test
-    public void getUsername() {
-        assertEquals("Hasan",user.getUsername());
+    public void testStudentUserName() {
+        assertEquals("Hasan",student.getUsername());
+    }
+    @Test
+    public void testProfUserName() {
+        assertEquals("prof",prof.getUsername());
+    }
+    @Test
+    public void testAdminUserName() {
+        assertEquals("admin",admin.getUsername());
     }
 
     @Test
-    public void setUsername() {
-        user.setUsername("Hasan1995");
-        assertEquals("Hasan1995",user.getUsername());
+    public void setStudentUserName() {
+        student.setUsername("HasanModified");
+        assertEquals("HasanModified",student.getUsername());
+    }
+    @Test
+    public void setProfUserName() {
+        prof.setUsername("profModified");
+        assertEquals("profModified",prof.getUsername());
+    }
+    @Test
+    public void setAdminUserName() {
+        admin.setUsername("adminModified");
+        assertEquals("adminModified",admin.getUsername());
     }
 
     @Test
-    public void getPassword() {
-        assertEquals("pass",user.getPassword());
+    public void getStudentPassword() {
+        assertEquals("pass",student.getPassword());
+    }
+    @Test
+    public void getProfPassword() {
+        assertEquals("pass",prof.getPassword());
+    }
+    @Test
+    public void getAdminPassword() {
+        assertEquals("pass",admin.getPassword());
     }
 
     @Test
-    public void setPassword() {
-        user.setPassword("password");
-        assertEquals("password",user.getPassword());
+    public void setStudentPassword() {
+        student.setPassword("password");
+        assertEquals("password",student.getPassword());
+    }
+    @Test
+    public void setProfPassword() {
+        prof.setPassword("password");
+        assertEquals("password",prof.getPassword());
+    }
+    @Test
+    public void setAdminPassword() {
+        admin.setPassword("password");
+        assertEquals("password",admin.getPassword());
     }
 
 
     @Test
-    public void getRole() {
-        assertEquals(EndUser.Role.STUDENT, user.getRole());
-
+    public void getStudentRole() {
+        assertEquals(EndUser.Role.STUDENT, student.getRole());
+    }
+    @Test
+    public void getProfRole() {
+        assertEquals(EndUser.Role.PROFESSOR, prof.getRole());
+    }
+    @Test
+    public void getAdminRole() {
+        assertEquals(EndUser.Role.ADMINISTRATOR, admin.getRole());
     }
 
     @Test
-    public void setRole() {
-        user.setRole(EndUser.Role.STUDENT);
-        assertEquals(EndUser.Role.STUDENT,user.getRole());
+    public void setRoleToStudent() {
+        student.setRole(EndUser.Role.STUDENT);
+        assertEquals(EndUser.Role.STUDENT,student.getRole());
+    }
+    @Test
+    public void setRoleToProf() {
+        student.setRole(EndUser.Role.PROFESSOR);
+        assertEquals(EndUser.Role.PROFESSOR,prof.getRole());
+    }
+    @Test
+    public void setRoleToAdmin() {
+        student.setRole(EndUser.Role.ADMINISTRATOR);
+        assertEquals(EndUser.Role.ADMINISTRATOR,admin.getRole());
     }
 }

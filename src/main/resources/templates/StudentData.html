@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<div class="mx-auto py-5" style="width: 95%;">
+    <p th:if="${addError}" class="error text-danger text-center"> Student was not added. ERROR</p>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Email</th>
+            <th>Diploma</th>
+            <th>CV</th>
+            <th>Grade Audit</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempUser : ${dat}">
+
+            <td th:text="${tempUser.email}" />
+            <td th:text="${tempUser.diploma}" />
+            <td th:text="${tempUser.cv}" />
+            <td th:text="${tempUser.gradeAudit}" />
+
+            <td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>

@@ -64,10 +64,6 @@ FieldOfResearch
 * id
 * description
 * name
-* numberStudents
-* professor
-* status
-* students
 
 EndUser
 
@@ -77,14 +73,23 @@ EndUser
 * role
 * username 
 
+Student
+
+* email
+* cv
+* diploma
+* grade audit
+
 ![entityManagerFactory(EntityManagerFactoryBuilder)](https://user-images.githubusercontent.com/34280127/76048172-0d570900-5f33-11ea-9ebe-1bd790f0a385.png)
 
 ## Project Milestone 2:
 * Applicant Functionality: 
     * Create a profile
-    * Join a Professors Field Of Research. 
+    * Join a Professors Field Of Research.
+  
 * Administrator Functionality:
     * Register an account
     * Login to the system
+    * Administrator can view the data (email,cv, diploma and grade audit) submitted by the student
 * Unit and Integration Tests for each new functionality
 * Issues and Code Reviews 

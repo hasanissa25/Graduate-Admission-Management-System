@@ -9,6 +9,7 @@
             <div class="mx-auto">
                 <h1><a class="nav-link" sec:authorize="hasAuthority('PROFESSOR')" href="createFOR.html" th:href="@{/createFOR}">Create Field Of Research</a></h1>
                 <h1><a class="nav-link" href="fieldsOfResearch.html" th:href="@{/fieldOfResearch}">Current Fields Of Research</a></h1>
+                <h1><a class="nav-link" sec:authorize="hasAuthority('ADMINISTRATOR')" href="StudentData.html" th:href="@{/StudentData}">Retreive StudentData</a></h1>
                 <h1><a class="nav-link" sec:authorize="hasAuthority('STUDENT')" href="studentProfile.html" th:href="@{/studentProfile}">Create Student Profile</a></h1>
                 <h1><a class="nav-link" sec:authorize="hasAuthority('STUDENT')" href="studentInfo.html" th:href="@{/studentInfo}">Apply to Field Of Research</a></h1>
             </div>

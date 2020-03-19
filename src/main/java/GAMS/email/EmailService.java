@@ -9,16 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmailService {
     @Autowired
-    private EmailConfiguration emailConfiguration;
-
-    public JavaMailSender getJavaMailSender() {
-        JavaMailSenderImpl mailSenderImpl = new JavaMailSenderImpl();
-        mailSenderImpl.setHost(emailConfiguration.getHost());
-        mailSenderImpl.setPort(emailConfiguration.getPort());
-        mailSenderImpl.setUsername(emailConfiguration.getUsername());
-        mailSenderImpl.setPassword(emailConfiguration.getPassword());
-        return mailSenderImpl;
-    }
+    private JavaMailSender javaMailSender;
 
 
     public void sendSimpleMessage(String to, String from, String subject, String text) {
@@ -27,7 +18,7 @@ public class EmailService {
         message.setSubject(subject);
         message.setText(text);
         message.setFrom(from);
-        getJavaMailSender().send(message);
+        javaMailSender.send(message);
     }
 
 

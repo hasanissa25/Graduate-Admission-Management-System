@@ -130,7 +130,7 @@ We are using the JavaMailSender api to send the message.
 We are providing those details to spring boot java mail to send email.
 The smtp and related email configuration is in application.properties file.
 
-When we click the sentemail button, it sends the email to the professor email we gave in the registration form.
+When we click the sent mail button, it sends the email to the professor email we gave in the registration form.
 
 
 

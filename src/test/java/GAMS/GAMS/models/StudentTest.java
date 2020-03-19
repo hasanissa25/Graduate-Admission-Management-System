@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class StudentTest {
-    Student student = new Student("Sarah","pass1", "pass1",
+    Student student = new Student("","Sarah","pass1", "pass1",
             "email1", "cv1", "diploma1", "gradeAudit1");
 
     @Test

@@ -31,13 +31,13 @@ public class Student extends EndUser implements Serializable {
         setRole(Role.STUDENT);
     }
 
-    public Student(String username, String password, String confPassword) {
-        super(username, password, confPassword, Role.STUDENT);
+    public Student(String emailAddress,String username, String password, String confPassword) {
+        super(emailAddress,username, password, confPassword, Role.STUDENT);
     }
 
-    public Student(String username, String password, String confPassword, String email,
+    public Student(String emailAddress,String username, String password, String confPassword, String email,
                    String cv, String diploma, String gradeAudit) {
-        super(username, password, confPassword, Role.STUDENT);
+        super(emailAddress,username, password, confPassword, Role.STUDENT);
         this.email = email;
         this.cv = cv;
         this.diploma = diploma;

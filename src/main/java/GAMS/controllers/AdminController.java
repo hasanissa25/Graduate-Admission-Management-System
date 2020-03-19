@@ -35,18 +35,46 @@ public class AdminController {
 
 
         Student student = studentRepo.findById(studentId);
+
+
+        List<FieldOfResearch> all = fieldOfResearchRepo.findAll();
+        FieldOfResearch fieldOfResearchFound = null;
+
+        //go over the field research data
+        //each research has students
+
+        //find the student based on the student id that iretrieved from the HTML
+        //once we find it then we know that student belong to that particular professor
+        for (FieldOfResearch fieldOfResearch : all) {
+            ArrayList<EndUser> students = fieldOfResearch.getStudents();
+            for (EndUser user : students) {
+
+                if (user.getId().equals(studentId)) {
+
+                    fieldOfResearchFound = fieldOfResearch;
+                    break;
+                }
+            }
+        }
+
         model.addAttribute("view", "StudentData");
 
-        //if we did professor
+
+        if(fieldOfResearchFound!=null){
+
             try {
-                String message = "The student " + student.getUsername() + " is interested in the research";
+                String message = "The student " + student.getUsername() + " is interested in the research program:" + fieldOfResearchFound.getName();
                 message = message + " CV:" + student.getCv() + " , Diploma:" + student.getDiploma() + " , Grade:" + student.getGradeAudit();
 
-                emailService.sendSimpleMessage(student.getEmail(), "test@gmail.com", "Student Interest in your research", message);
+                emailService.sendSimpleMessage(fieldOfResearchFound.getProfessor().getEmailAddress(),
+                        "test@gmail.com", "Student Interest in your research", message);
             } catch (Exception e) {
                 //leave the exception for now.
             }
-            return "redirect:/StudentData?message=Email Sent";
+
+        }
+
+        return "redirect:/StudentData?message=Email Sent";
 
     }
 

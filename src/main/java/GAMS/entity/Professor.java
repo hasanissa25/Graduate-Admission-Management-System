@@ -7,8 +7,8 @@ public class Professor extends EndUser implements Serializable {
     //List of researches conducted by this professor
     private ArrayList<FieldOfResearch> fieldOfResearches;
 
-    public Professor(String username, String password, String confPassword, ArrayList<FieldOfResearch> fieldOfResearches) {
-        super(username, password, confPassword, Role.PROFESSOR);
+    public Professor(String emailAddress,String username, String password, String confPassword, ArrayList<FieldOfResearch> fieldOfResearches) {
+        super(emailAddress,username, password, confPassword, Role.PROFESSOR);
         this.fieldOfResearches = fieldOfResearches ;
     }
 

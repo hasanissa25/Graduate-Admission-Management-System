@@ -6,9 +6,9 @@ import static org.junit.Assert.*;
 
 public class EndUserTest {
 
-    EndUser student = new EndUser("","Hasan","pass", "pass",  EndUser.Role.STUDENT);
-    EndUser prof = new EndUser("","prof","pass", "pass",  EndUser.Role.PROFESSOR);
-    EndUser admin = new EndUser("","admin","pass", "pass",  EndUser.Role.ADMINISTRATOR);
+    EndUser student = new EndUser("Hasan","pass", "pass",  EndUser.Role.STUDENT);
+    EndUser prof = new EndUser("prof","pass", "pass",  EndUser.Role.PROFESSOR);
+    EndUser admin = new EndUser("admin","pass", "pass",  EndUser.Role.ADMINISTRATOR);
 
     @Test
     public void testStudentUserName() {

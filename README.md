@@ -123,30 +123,23 @@ It uses the springboot mail starter.
 
 We are using the JavaMailSender api to send the message.
 
-As its quite difficult to setup a real mailbox like gmail. during the research we found out that we can use the mailtrap
 
-# Mailtrap (GMAIL and other are hard to setup)
+#  (GMAIL)
 
-it provides us the sandbox mail box with real smtp and host and user name.
 
 We are providing those details to spring boot java mail to send email.
 The smtp and related email configuration is in application.properties file.
 
-Whenever we click the student. We assign the email to the student which is 
-95b1a690b9-2b1fbb@inbox.mailtrap.io. Assign this email when we are creating
-student profile.
+When we click the sentemail button, it sends the email to the professor email we gave in the registration form.
 
 
-95b1a690b9-2b1fbb@inbox.mailtrap.io is the email account that is setup on mailtrap
 
-My mailstrap email is zmehdiz_96@hotmail.com
-Password is mailstrap
+
 
 When we click sentemail as an administrator on the retrievestudent data page
-it will sent an email to the student.
+it will sent an email to the Professor.
 
-Hopefully, In the next milestone I will be able to send the email to the professor which 
-I will work on in the coming week.
+
 
 # Flow
 

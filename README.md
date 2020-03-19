@@ -136,7 +136,7 @@ When we click the sentemail button, it sends the email to the professor email we
 
 
 
-When we click sentemail as an administrator on the retrievestudent data page
+
 it will sent an email to the Professor.
 
 

@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EndUserRepo extends CrudRepository<EndUser, String > {
     EndUser findByUsername(String username);
+    EndUser findByEmail(String email);
 }

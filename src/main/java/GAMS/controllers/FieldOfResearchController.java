@@ -46,7 +46,7 @@ public class FieldOfResearchController {
         FieldOfResearch temp = researchRepository.findByName(research.getName());
 
             if (research.getProfessor()==null){
-                research.setProfessor(new Professor(user.getUsername(),user.getPassword(),user.getConfPassword(),null));
+                research.setProfessor(new Professor(user.getUsername(),user.getPassword(),user.getConfPassword(), user.getEmail(), null));
             }
 
             if (research.getStudents() == null){

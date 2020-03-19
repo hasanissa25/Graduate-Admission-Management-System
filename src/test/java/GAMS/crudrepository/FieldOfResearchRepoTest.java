@@ -24,8 +24,8 @@ public class FieldOfResearchRepoTest {
         ArrayList<FieldOfResearch> projects = new ArrayList<>();
         projects.add(project1);
 
-       Professor prof = new Professor("","","",projects);
-        FieldOfResearch project = new FieldOfResearch("sysc4806","lab", prof );
+       Professor prof = new Professor("","","", "",projects);
+        FieldOfResearch project = new FieldOfResearch("sysc4806","lab", prof, "" );
         research.save(project);
         Assert.assertNotNull(research.findAll());
     }

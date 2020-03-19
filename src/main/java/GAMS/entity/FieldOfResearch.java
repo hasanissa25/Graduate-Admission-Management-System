@@ -13,6 +13,14 @@ public class FieldOfResearch implements Serializable {
     private String name;
     private String description;
 
+    //Field of research that has the professor
+       //that can have more than one students
+    //a student can only have one field of research
+
+
+
+    private String email;
+
     //Maximum Number of students
     private int numberStudents;
 
@@ -23,10 +31,11 @@ public class FieldOfResearch implements Serializable {
     @Column(length=1024)
     private ArrayList<EndUser> students;
 
-    public FieldOfResearch(String name,String description,Professor professor) {
+    public FieldOfResearch(String name,String description,Professor professor, String email) {
         this.name = name;
         this.description=description;
         this.professor=professor;
+        this.email = email;
 
     }
 
@@ -37,14 +46,23 @@ public class FieldOfResearch implements Serializable {
 
     }
 
-    public FieldOfResearch(String name, String description, int numberStudents, Professor professor, ArrayList<EndUser> students) {
+    public FieldOfResearch(String name, String description, int numberStudents, Professor professor, String email, ArrayList<EndUser> students) {
         this.name = name;
         this.description = description;
         this.numberStudents = numberStudents;
         this.professor = professor;
         this.students = students;
+        this.email = email;
 
         this.status = Status.ACTIVE;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 
@@ -106,7 +124,7 @@ public class FieldOfResearch implements Serializable {
                 return true;
             }
         }
-         return false;
+        return false;
     }
 
 
@@ -121,6 +139,8 @@ public class FieldOfResearch implements Serializable {
         return true;
     }
 
+
+
     public void activate(){
         this.status = Status.ACTIVE;
     }
@@ -133,4 +153,3 @@ public class FieldOfResearch implements Serializable {
         return this.status == Status.ACTIVE;
     }
 }
-

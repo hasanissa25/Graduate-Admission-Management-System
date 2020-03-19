@@ -20,19 +20,19 @@ public class UserRepositoryTest {
 
     @Test
     public void CreateStudentCheckRepoistory() {
-        EndUser user = new EndUser("Student", "pass", "pass", EndUser.Role.STUDENT);
+        EndUser user = new EndUser("Student", "pass", "pass", "pass",EndUser.Role.STUDENT);
         endUserRepo.save(user);
         Assert.assertNotNull(endUserRepo.findByUsername("Student"));
     }
     @Test
     public void CreateProfessorCheckRepoistory() {
-        EndUser user = new EndUser("Professor", "pass", "pass", EndUser.Role.PROFESSOR);
+        EndUser user = new EndUser("Professor", "pass", "pass", "pass", EndUser.Role.PROFESSOR);
         endUserRepo.save(user);
         Assert.assertNotNull(endUserRepo.findByUsername("Professor"));
     }
     @Test
     public void CreateAdministratorCheckRepoistory() {
-        EndUser user = new EndUser("Admin", "pass", "pass", EndUser.Role.ADMINISTRATOR);
+        EndUser user = new EndUser("Admin", "pass", "pass", "pass" ,EndUser.Role.ADMINISTRATOR);
         endUserRepo.save(user);
         Assert.assertNotNull(endUserRepo.findByUsername("Admin"));
     }

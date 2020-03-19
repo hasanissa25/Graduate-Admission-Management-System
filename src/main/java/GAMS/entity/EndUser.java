@@ -19,6 +19,24 @@ public class EndUser implements Serializable {
     @NotNull
     private String password;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
+
     public enum Role {
         STUDENT, PROFESSOR, ADMINISTRATOR
     }
@@ -29,10 +47,11 @@ public class EndUser implements Serializable {
 
     public EndUser(){}
 
-    public EndUser(String username, String password, String confPassword, Role role) {
+    public EndUser(String username, String password, String confPassword, String email, Role role) {
         this.username = username;
         this.password = password;
         this.confPassword = confPassword;
+        this.email = email;
         this.role = role;
     }
 

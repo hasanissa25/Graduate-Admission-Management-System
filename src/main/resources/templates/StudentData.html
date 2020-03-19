@@ -2,6 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <div class="mx-auto py-5" style="width: 95%;">
     <p th:if="${addError}" class="error text-danger text-center"> Student was not added. ERROR</p>
+    <div class="alert alert-success" role="alert"  th:if="${(param.message != null)}">
+        <p th:text="${param.message}"></p>
+    </div>
 
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
@@ -10,6 +13,7 @@
             <th>Diploma</th>
             <th>CV</th>
             <th>Grade Audit</th>
+            <th>Action</th>
         </tr>
         </thead>
 
@@ -20,8 +24,10 @@
             <td th:text="${tempUser.diploma}" />
             <td th:text="${tempUser.cv}" />
             <td th:text="${tempUser.gradeAudit}" />
+            <td><a th:href="@{/sendEmail/{id}(id=${tempUser.id})}" class="btn btn-primary">Send Email</a></td>
 
-            <td>
+
+<!--            <td>-->
 
         </tr>
         </tbody>

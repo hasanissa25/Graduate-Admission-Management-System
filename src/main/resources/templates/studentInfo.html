@@ -31,6 +31,7 @@
                                 <tr>
                                     <th> Selected Fields of Research </th>
                                     <th> Professors </th>
+                                    <th> Email </th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -41,6 +42,12 @@
                                             <span th:case="*"><span th:text="${res.getProfessor().getUsername()}"></span></span>
                                         </div>
                                     </td>
+
+                                        <td>
+                                            <div th:switch="${res.getEmail()}">
+                                                <span th:case="*"><span th:text="${res.getProfessor().getEmail()}"></span></span>
+                                            </div>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

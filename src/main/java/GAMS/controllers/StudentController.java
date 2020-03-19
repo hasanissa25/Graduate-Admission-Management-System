@@ -74,7 +74,7 @@ public class StudentController {
         Iterable<FieldOfResearch> all = researchRepository.findAll();
         List<FieldOfResearch> active = new ArrayList<>();
         for(FieldOfResearch research : all){
-            if(research.hasStudent(auth.getName())){
+            if(research.hasStudent(auth.getName())) {
                 active.add(research);
             }
         }

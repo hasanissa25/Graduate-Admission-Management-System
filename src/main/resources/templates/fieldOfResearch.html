@@ -8,6 +8,8 @@
             <th> Fields of Research </th>
 
             <th> Professor</th>
+
+            <th> email </th>
             <th> </th>
 
 
@@ -25,6 +27,19 @@
 
                     <span th:case="*"><span th:text="${res.getProfessor().getUsername()}">Professor</span></span>
                 </div>
+            </td>
+
+            <td>
+                <div th:switch="${res.getEmail()}">
+
+                    <span th:case="*"><span th:text="${res.getProfessor().getEmail()}">Email</span></span>
+                </div>
+            </td>
+            <td>
+                <span id="details-button">
+                    <button class="btn btn-large btn-success" data-toggle="modal" data-target="#details" th:attr="data-target='#details'+${res.getName()}"> ACTIONS
+                    </button>
+                </span>
             </td>
 
             <td>

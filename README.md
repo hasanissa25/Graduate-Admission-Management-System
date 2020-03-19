@@ -93,3 +93,28 @@ Student
     * Administrator can view the data (email,cv, diploma and grade audit) submitted by the student
 * Unit and Integration Tests for each new functionality
 * Issues and Code Reviews 
+
+
+# Email Functionality
+It uses the springboot mail starter. 
+
+We are using the JavaMailSender api to send the message.
+
+As its quite difficult to setup a real mailbox like gmail. during the research we found out that we can use the mailtrap
+
+# Mailtrap (GMAIL and other are hard to setup)
+
+it provides us the sandbox mail box with real smtp and host and user name.
+
+We are providing those details to spring boot java mail to send email.
+The smtp and related email configuration is in application.properties file.
+
+Whenever we click the student. We first find out the professor and professor has an email. 
+
+5de98f88f8-cf8cbe@inbox.mailtrap.io is the email account that is setup on mailtrap
+
+# Flow
+
+The data is passed from studentData.htlm page to the controller
+
+Then we find the professor email and send to it using the spring mail api.

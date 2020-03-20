@@ -132,23 +132,3 @@ Student
     * Here you can view all the current applications students have made. 
     * You can click the Send Email button, to generate an email notification to the professor responsible for the Field Of Research that specific student applied to.
     
-# Email Functionality(How it Works)
-It uses the springboot mail starter. 
-
-We are using the JavaMailSender api to send the message.
-
-#  (GMAIL)
-
-We are providing those details to spring boot java mail to send email.
-
-The smtp and related email configuration is in application.properties file.
-
-When we click the sent mail button, it sends the email to the professor email we gave in the registration form.
-
-it will sent an email to the Professor.
-
-# Flow
-
-The data is passed from studentData.html page to the controller
-
-Then we find the professor email and send to it using the spring mail api.

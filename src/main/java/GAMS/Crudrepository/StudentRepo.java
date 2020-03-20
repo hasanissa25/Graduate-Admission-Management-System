@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface StudentRepo extends CrudRepository<Student, String > {
     //this is for when are going to delete/update using the id
     Student findById(long id);
+    Student findByUsername(String username);
 
 }

@@ -25,8 +25,14 @@
             <td th:text="${tempUser.cv}" />
             <td th:text="${tempUser.gradeAudit}" />
             <td><a th:href="@{/sendEmail/{id}(id=${tempUser.id})}" class="btn btn-primary">Send Email</a></td>
+            <td>
+                <input
+                        type="checkbox"
+                        name="myBooleanVariable"
+                        th:checked="${myBooleanVariable}"/>
         </tr>
         </tbody>
     </table>
 </div>
 </html>
+

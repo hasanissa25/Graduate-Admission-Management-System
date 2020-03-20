@@ -10,6 +10,9 @@
                     <h3>Create a new Field of Research: </h3>
                     <fieldset>
                         <div class="form-group">
+                            <input class="form-control input-lg" placeholder="Enter Email Address" name="name" type="text" th:field="*{emailAddress}" required>
+                        </div>
+                        <div class="form-group">
                             <input class="form-control input-lg" placeholder="Enter the Title for Field of Research" name="name" type="text" th:field="*{name}" required>
                         </div>
                         <div class="form-group">

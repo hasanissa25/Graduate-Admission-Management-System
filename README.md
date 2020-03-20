@@ -118,3 +118,31 @@ Student
     * Click Current Student Applications
     * Here you can view all the current applications students have made. (You currently can only view the applications, but we will be implementing "Send to the professor for approval" functionality in the upcoming milestone)
     
+# Email Functionality
+It uses the springboot mail starter. 
+
+We are using the JavaMailSender api to send the message.
+
+
+#  (GMAIL)
+
+
+We are providing those details to spring boot java mail to send email.
+The smtp and related email configuration is in application.properties file.
+
+When we click the sent mail button, it sends the email to the professor email we gave in the registration form.
+
+
+
+
+
+
+it will sent an email to the Professor.
+
+
+
+# Flow
+
+The data is passed from studentData.html page to the controller
+
+Then we find the professor email and send to it using the spring mail api.

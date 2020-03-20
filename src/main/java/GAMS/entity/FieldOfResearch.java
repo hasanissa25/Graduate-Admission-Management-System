@@ -23,6 +23,8 @@ public class FieldOfResearch implements Serializable {
     @Column(length=1024)
     private ArrayList<EndUser> students;
 
+    private String emailAddress;
+
     public FieldOfResearch(String name,String description,Professor professor) {
         this.name = name;
         this.description=description;
@@ -131,6 +133,18 @@ public class FieldOfResearch implements Serializable {
 
     public boolean isActive(){
         return this.status == Status.ACTIVE;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 }
 

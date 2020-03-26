@@ -12,12 +12,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-//This is the security Configuration
 
 @Configuration
 @EnableWebSecurity
-public class Authenicate extends WebSecurityConfigurerAdapter{
-    //this implements the interface to check if the username and password are in the database
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
@@ -33,6 +31,10 @@ public class Authenicate extends WebSecurityConfigurerAdapter{
                 .authorizeRequests()
                 .antMatchers("/register", "/resources/*", "/projects").permitAll()
                 .antMatchers("/delete").hasAnyAuthority("PROFESSOR")
+                .antMatchers("/createFOR").hasAuthority("PROFESSOR")
+                .antMatchers("/StudentData").hasAuthority("ADMINISTRATOR")
+                .antMatchers("/studentProfile").hasAuthority("STUDENT")
+                .antMatchers("/studentInfo").hasAuthority("STUDENT")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

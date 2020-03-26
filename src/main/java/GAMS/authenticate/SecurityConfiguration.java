@@ -24,31 +24,32 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
             throws Exception {
         auth.userDetailsService(userDetailsService);
     }
+
     //What endpoints do you need to be authenticated for.
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/register", "/resources/*", "/projects").permitAll()
-                .antMatchers("/delete").hasAnyAuthority("PROFESSOR")
-                .antMatchers("/createFOR").hasAuthority("PROFESSOR")
-                .antMatchers("/StudentData").hasAuthority("ADMINISTRATOR")
-                .antMatchers("/studentProfile").hasAuthority("STUDENT")
-                .antMatchers("/studentInfo").hasAuthority("STUDENT")
-                .anyRequest().authenticated()
-                .and()
+                    .antMatchers("/register", "/resources/*", "/projects").permitAll()
+                    .antMatchers("/delete").hasAnyAuthority("PROFESSOR")
+                    .antMatchers("/createFOR").hasAuthority("PROFESSOR")
+                    .antMatchers("/StudentData").hasAuthority("ADMINISTRATOR")
+                    .antMatchers("/studentProfile").hasAuthority("STUDENT")
+                    .antMatchers("/studentInfo").hasAuthority("STUDENT")
+                    .anyRequest().authenticated()
+                    .and()
                 .formLogin()
-                .loginPage("/login")
-                .failureUrl("/login-error")
-                .permitAll()
-                .and()
+                    .loginPage("/login")
+                    .failureUrl("/login-error")
+                    .permitAll()
+                    .and()
                 .logout()
-                .invalidateHttpSession(true)
-                .clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login-logout")
-                .permitAll();
-                 http.csrf().disable();
+                    .invalidateHttpSession(true)
+                    .clearAuthentication(true)
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutSuccessUrl("/login-logout")
+                    .permitAll();
+        http.csrf().disable();
 
     }
     @Bean

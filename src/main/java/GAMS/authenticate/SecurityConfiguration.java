@@ -30,6 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     protected void configure(final HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                     .antMatchers("/h2-console/**").hasAnyAuthority("PROFESSOR","ADMINISTRATOR")
                     .antMatchers("/register", "/resources/*", "/projects").permitAll()
                     .antMatchers("/delete").hasAnyAuthority("PROFESSOR")
                     .antMatchers("/createFOR").hasAuthority("PROFESSOR")
@@ -50,6 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                     .logoutSuccessUrl("/login-logout")
                     .permitAll();
         http.csrf().disable();
+        http.headers().frameOptions().disable();
 
     }
     @Bean

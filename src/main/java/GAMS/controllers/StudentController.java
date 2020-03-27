@@ -28,7 +28,7 @@ public class StudentController {
     @Autowired
     FieldOfResearchRepo researchRepository;
 
-
+//
     @GetMapping("/studentProfile")
     public String studentProfile(Model model, HttpServletRequest request) {
 

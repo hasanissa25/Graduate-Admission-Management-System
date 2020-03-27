@@ -89,6 +89,10 @@
         <script> $("#pageTitle").html("Student Info"); </script>
         <div th:replace="studentInfo"/>
     </div>
+    <div th:case="'StudentCandidates'">
+        <script> $("#pageTitle").html("Field of Research Candidates"); </script>
+        <div th:replace="StudentCandidates"/>
+    </div>
 </td>
 
 </body>

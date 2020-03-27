@@ -25,10 +25,18 @@ public class CandidatesController {
     @GetMapping("/StudentCandidates")
     public String list(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Iterable<FieldOfResearch> all = fieldOfResearchRepo.findAll();
+        Iterable<Student> all2 = studentRepo.findAll();
 
-        Iterable<Student> all = studentRepo.findAll();
+        List<FieldOfResearch> active = new ArrayList<>();
+        for(FieldOfResearch research : all){
+            if(research.isActive()){
+                active.add(research);
+            }
+        }
+        model.addAttribute("tash", active);
 
-        model.addAttribute("dat", all);
+        model.addAttribute("dat", all2);
 
         model.addAttribute("view", "StudentCandidates");
         return "layout";

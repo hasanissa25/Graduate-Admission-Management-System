@@ -19,8 +19,12 @@
         </thead>
 
         <tbody>
+        <tr th:each="tempRes : ${tash}">
+            <td><span th:text="${tempRes.getName()}">Title</span></td>
+        </tr>
         <tr th:each="tempUser : ${dat}">
 <!--            <td th:text="${tempUser.email}" />-->
+
             <td th:text="${tempUser.email}" />
             <td th:text="${tempUser.diploma}" />
             <td th:text="${tempUser.cv}" />

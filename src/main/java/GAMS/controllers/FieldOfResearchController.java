@@ -42,21 +42,17 @@ public class FieldOfResearchController {
     public String create(@ModelAttribute FieldOfResearch research, Model model){
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
         EndUser user = userRepository.findByUsername(auth.getName());
 
-
-            if (research.getProfessor()==null){
                 research.setProfessor(new Professor(research.getEmailAddress(),user.getUsername(),user.getPassword(),user.getConfPassword(),null));
-            }
 
-            if (research.getStudents() == null){
                 research.setStudents(new ArrayList<EndUser>());
-            }
+
 
             research.activate();
             researchRepository.save(research);
             return "redirect:fieldOfResearch";
-
 
     }
 
@@ -68,9 +64,9 @@ public class FieldOfResearchController {
         if(auth instanceof AnonymousAuthenticationToken || user.getRoleValue().equals("STUDENT")){
             List<FieldOfResearch> active = new ArrayList<>();
             for(FieldOfResearch research : all){
-                if(research.isActive()){
+
                     active.add(research);
-                }
+
             }
             model.addAttribute("research", active);
             model.addAttribute("view", "fieldOfResearch");

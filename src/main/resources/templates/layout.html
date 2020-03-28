@@ -24,8 +24,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="index.html" th:href="@{/}">Home</a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="fieldOfResearch.html" th:href="@{/fieldOfResearch}"> Fields of Research </a>
+                    <a class="nav-link" sec:authorize="hasAuthority('STUDENT')" href="fieldOfResearch.html" th:href="@{/fieldOfResearch}"> Current Fields of Research </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" sec:authorize="hasAuthority('PROFESSOR')" href="createFOR.html" th:href="@{/createFOR}">Create Fields of Research</a>

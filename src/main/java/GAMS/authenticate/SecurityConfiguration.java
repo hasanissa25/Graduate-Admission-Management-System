@@ -12,12 +12,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-//This is the security Configuration
 
 @Configuration
 @EnableWebSecurity
-public class Authenicate extends WebSecurityConfigurerAdapter{
-    //this implements the interface to check if the username and password are in the database
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
@@ -26,27 +24,34 @@ public class Authenicate extends WebSecurityConfigurerAdapter{
             throws Exception {
         auth.userDetailsService(userDetailsService);
     }
+
     //What endpoints do you need to be authenticated for.
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/register", "/resources/*", "/projects").permitAll()
-                .antMatchers("/delete").hasAnyAuthority("PROFESSOR")
-                .anyRequest().authenticated()
-                .and()
+                     .antMatchers("/h2-console/**").hasAnyAuthority("PROFESSOR","ADMINISTRATOR")
+                    .antMatchers("/register", "/resources/*", "/projects").permitAll()
+                    .antMatchers("/delete").hasAnyAuthority("PROFESSOR")
+                    .antMatchers("/createFOR").hasAuthority("PROFESSOR")
+                    .antMatchers("/StudentData").hasAuthority("ADMINISTRATOR")
+                    .antMatchers("/studentProfile").hasAuthority("STUDENT")
+                    .antMatchers("/studentInfo").hasAuthority("STUDENT")
+                    .anyRequest().authenticated()
+                    .and()
                 .formLogin()
-                .loginPage("/login")
-                .failureUrl("/login-error")
-                .permitAll()
-                .and()
+                    .loginPage("/login")
+                    .failureUrl("/login-error")
+                    .permitAll()
+                    .and()
                 .logout()
-                .invalidateHttpSession(true)
-                .clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login-logout")
-                .permitAll();
-                 http.csrf().disable();
+                    .invalidateHttpSession(true)
+                    .clearAuthentication(true)
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutSuccessUrl("/login-logout")
+                    .permitAll();
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
 
     }
     @Bean

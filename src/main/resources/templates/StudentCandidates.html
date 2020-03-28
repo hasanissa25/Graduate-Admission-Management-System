@@ -19,17 +19,30 @@
         </thead>
 
         <tbody>
-        <tr th:each="tempRes : ${tash}">
+        <tr th:each="tempRes : ${dat}">
             <td><span th:text="${tempRes.getName()}">Title</span></td>
-        </tr>
-        <tr th:each="tempUser : ${dat}">
-<!--            <td th:text="${tempUser.email}" />-->
 
-            <td th:text="${tempUser.email}" />
-            <td th:text="${tempUser.diploma}" />
-            <td th:text="${tempUser.cv}" />
-            <td th:text="${tempUser.gradeAudit}" />
-<!--            <td><a th:href="@{/sendEmail/{id}(id=${tempUser.id})}" class="btn btn-primary">Send Email</a></td>-->
+                <p th:each="tempUser : ${dat2}">
+                    <td th:text="${tempUser.email}" />
+                    <td th:text="${tempUser.diploma}"/>
+                    <td th:text="${tempUser.cv}"/>
+                    <td th:text="${tempUser.gradeAudit}"/>
+<!--                    <td>-->
+<!--                        <span id="details-button">-->
+<!--                            <button class="btn btn-large btn-success" data-toggle="modal" data-target="#details" th:attr="data-target='#details'+${res.getName()}"> ACTIONS-->
+<!--                            </button>-->
+<!--                        </span>-->
+<!--                    </td>-->
+                    <td>
+                        <label for=${tempUser.id}>Enter Assessment:</label>
+                        <select id=${tempUser.id}>
+                            <option value="C1">Don’t recommend for admission</option>
+                            <option value="C2">Recommend but not interested in supervision</option>
+                            <option value="C3">Recommend but no funding</option>
+                            <option value="C4">Recommend and yes to funding</option>
+                        </select>
+                    </td>
+            </td>
         </tr>
         </tbody>
     </table>

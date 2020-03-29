@@ -48,6 +48,26 @@ public class CandidatesController {
 
     }
 
+    //make new html page for administrator to send email to student depending on their decision from prof
+    @PostMapping("/StudentCandidate")
+    public String saveDecision(@ModelAttribute Student formStudent, Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Student student = studentRepo.findByUsername(auth.getName());
 
+        if(student == null){
+            // This is an error because the student is supposed to exist in DB
+            model.addAttribute("view", "index");
+            return "layout";
+        }
+        else{
+            formStudent.setDecision(student.getDecision());
+            studentRepo.save(formStudent);
+            studentRepo.delete(student);
+
+            model.addAttribute("view", "index");
+            return "redirect:";
+        }
+
+    }
 
 }

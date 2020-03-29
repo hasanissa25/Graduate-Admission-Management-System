@@ -20,11 +20,16 @@ public class Student extends EndUser implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public enum Assessment {
+        C1, C2, C3, C4
+    }
+    private Assessment assessment;
 
     private String email;
     private String cv;
     private String diploma;
     private String gradeAudit;
+    private String decision;
 
     public Student() {
         super();
@@ -42,6 +47,12 @@ public class Student extends EndUser implements Serializable {
         this.cv = cv;
         this.diploma = diploma;
         this.gradeAudit = gradeAudit;
+    }
+
+    public Student(String username, String password, String confPassword, String email, String decision) {
+        super(username, password, confPassword, Role.STUDENT);
+        this.email = email;
+        this.decision = decision;
     }
 
     public void setEmail(String email) {
@@ -75,6 +86,34 @@ public class Student extends EndUser implements Serializable {
     public String getCv() {
         return cv;
     }
+
+    public void setDecision(String decision) {
+        this.decision = decision;
+    }
+
+    public String getDecision() {
+        return decision;
+    }
+
+    public String getAssessment(){
+
+        switch(assessment) {
+            case C1:
+                return "Don’t recommend for admission";
+            case C2:
+                return "Recommend but not interested in supervision";
+            case C3:
+                return "Recommend but no funding";
+            case C4:
+                return "Recommend and yes to funding";
+        }
+        return assessment.name();
+    }
+
+    public void setAssessment(Assessment assessment) {
+        this.assessment = assessment;
+    }
+
 
     @Override
     public Long getId() {

@@ -27,21 +27,41 @@
                     <td th:text="${tempUser.diploma}"/>
                     <td th:text="${tempUser.cv}"/>
                     <td th:text="${tempUser.gradeAudit}"/>
+
+
+
 <!--                    <td>-->
-<!--                        <span id="details-button">-->
-<!--                            <button class="btn btn-large btn-success" data-toggle="modal" data-target="#details" th:attr="data-target='#details'+${res.getName()}"> ACTIONS-->
-<!--                            </button>-->
-<!--                        </span>-->
+<!--                        <label for=${tempUser.id}>Enter Assessment:</label>-->
+<!--                        <select id=${tempUser.id}>-->
+<!--                            <option value="C1">Don’t recommend for admission</option>-->
+<!--                            <option value="C2">Recommend but not interested in supervision</option>-->
+<!--                            <option value="C3">Recommend but no funding</option>-->
+<!--                            <option value="C4">Recommend and yes to funding</option>-->
+<!--                        </select>-->
 <!--                    </td>-->
-                    <td>
-                        <label for=${tempUser.id}>Enter Assessment:</label>
-                        <select id=${tempUser.id}>
-                            <option value="C1">Don’t recommend for admission</option>
-                            <option value="C2">Recommend but not interested in supervision</option>
-                            <option value="C3">Recommend but no funding</option>
-                            <option value="C4">Recommend and yes to funding</option>
-                        </select>
-                    </td>
+
+
+
+            <div class="form-group">
+                <select form="form-formStudent" class="form-control input-lg" multiple="multiple" name="restrictions" th:field="*{restrictions}">
+                    <option disabled th:value="'0'">Enter Assessment:</option>
+                    <option th:value="C1">Don’t recommend for admission</option>
+                    <option th:value="C2">Recommend but not interested in supervision</option>
+                    <option th:value="C3">Recommend but no funding</option>
+                    <option th:value="C4">Communications Engineering</option>
+
+                </select>
+
+            </div>
+
+
+
+
+<!--            <div class="form-group">-->
+<!--                <label>Diploma:</label>-->
+<!--                <input type="text" class="form-control input-lg" placeholder="Please Select Your Diploma" name="diplomaFile" th:field="*{C1}">-->
+<!--            </div>-->
+
             </td>
         </tr>
         </tbody>

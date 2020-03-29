@@ -21,15 +21,29 @@ public class Student extends EndUser implements Serializable {
     private Long id;
 
     public enum Assessment {
-        C1, C2, C3, C4
+        C1("Don’t recommend for admission"),
+        C2("Recommend but not interested in supervision"),
+        C3("Recommend but no funding"),
+        C4("Recommend and yes to funding");
+
+        public String getValue() {
+            return value;
+        }
+
+        private final String value;
+
+        Assessment(String value){
+            this.value=value;
+        }
+
     }
-    private Assessment assessment;
 
     private String email;
     private String cv;
     private String diploma;
     private String gradeAudit;
     private String decision;
+    private Assessment assessment;
 
     public Student() {
         super();
@@ -49,10 +63,11 @@ public class Student extends EndUser implements Serializable {
         this.gradeAudit = gradeAudit;
     }
 
-    public Student(String username, String password, String confPassword, String email, String decision) {
+    public Student(String username, String password, String confPassword, String email,
+                   Assessment assessment) {
         super(username, password, confPassword, Role.STUDENT);
         this.email = email;
-        this.decision = decision;
+        this.assessment = assessment;
     }
 
     public void setEmail(String email) {
@@ -95,19 +110,8 @@ public class Student extends EndUser implements Serializable {
         return decision;
     }
 
-    public String getAssessment(){
-
-        switch(assessment) {
-            case C1:
-                return "Don’t recommend for admission";
-            case C2:
-                return "Recommend but not interested in supervision";
-            case C3:
-                return "Recommend but no funding";
-            case C4:
-                return "Recommend and yes to funding";
-        }
-        return assessment.name();
+    public Assessment getAssessment(){
+        return assessment;
     }
 
     public void setAssessment(Assessment assessment) {

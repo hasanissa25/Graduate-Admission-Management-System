@@ -14,15 +14,9 @@ public class Candidate  {
     private Long id;
     private String decision;
     private String email;
-    private String final_decision;
 
-    public String getFinal_decision() {
-        return final_decision;
-    }
 
-    public void setFinal_decision(String final_decision) {
-        this.final_decision = final_decision;
-    }
+
 
 
 
@@ -50,11 +44,11 @@ public class Candidate  {
         this.email = email;
     }
 
-    public Candidate(String email, String decision, String final_decision) {
+    public Candidate(String email, String decision) {
 
         this.decision =decision;
         this.email = email;
-        this.final_decision = final_decision;
+
     }
 
     public Candidate() {

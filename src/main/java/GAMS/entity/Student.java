@@ -14,11 +14,7 @@ import java.util.ArrayList;
 public class Student extends EndUser implements Serializable {
 
 
-    @Getter
-    @Setter
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
 
 
     private String email;
@@ -76,13 +72,5 @@ public class Student extends EndUser implements Serializable {
         return cv;
     }
 
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
-    }
+  
 }

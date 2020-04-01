@@ -67,7 +67,7 @@ public class CandidatesController {
 
         candidateRepo.save(candidate);
 
-        return "redirect:";
+        return "redirect:StudentCandidate";
 
 
 

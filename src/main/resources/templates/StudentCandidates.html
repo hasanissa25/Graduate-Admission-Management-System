@@ -33,12 +33,28 @@
                         <div class="form-group">
                             <input class="form-control input-lg" placeholder="Enter Email " name="email" type="text" th:field="*{email}" required>
                         </div>
+
                         <div class="form-group">
-                            <input class="form-control input-lg" placeholder="Enter the decision" name="decision" type="text" th:field="*{decision}" required>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="option1" name="option1" class="custom-control-input" value="1" th:field="*{decision}">
+                                <label class="custom-control-label" for="option1">Don’t recommend for admission</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="option2" name="option2" class="custom-control-input" value="2" th:field="*{decision}">
+                                <label class="custom-control-label" for="option2">Recommend but not interested in supervision</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="option3" name="option3" class="custom-control-input" value="3" th:field="*{decision}">
+                                <label class="custom-control-label" for="option3">Recommend but no funding</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="option4" name="option4" class="custom-control-input" value="4" th:field="*{decision}">
+                                <label class="custom-control-label" for="option4">Recommend and yes to funding</label>
+                            </div>
                         </div>
 
 
-                        <input class="btn btn-lg btn-primary btn-block" value="save1" type="submit">
+                        <input class="btn btn-lg btn-primary btn-block" value="Submit Assessment" type="submit">
                     </fieldset>
                 </form>
             </div>

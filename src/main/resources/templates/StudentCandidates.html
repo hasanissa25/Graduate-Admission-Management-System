@@ -28,10 +28,10 @@
         <div class="row">
             <div class="col-md-9 mx-auto">
                 <form class="card card-body" th:action="@{/StudentCandidate}" th:object="${candidate}" method="post">
-                    <h3>Create new candidate: </h3>
+                    <h3>Choose a student candidate: </h3>
                     <fieldset>
                         <div class="form-group">
-                            <input class="form-control input-lg" placeholder="Enter Email " name="email" type="text" th:field="*{email}" required>
+                            <input class="form-control input-lg" placeholder="Enter the chosen student's Email " name="email" type="text" th:field="*{email}" required>
                         </div>
 
                         <div class="form-group">

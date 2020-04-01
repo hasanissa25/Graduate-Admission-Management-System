@@ -17,15 +17,15 @@
                         </div>
                         <div class="form-group">
                             <label>CV:</label>
-                            <input type="text" class="form-control input-lgt" placeholder="Please Select Your CV" name="cvFile" th:field="*{cv}">
+                            <textarea rows="20" type="text" class="form-control input-lgt" placeholder="Please enter your CV" name="cvFile" th:field="*{cv}"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Diploma:</label>
-                            <input type="text" class="form-control input-lg" placeholder="Please Select Your Diploma" name="diplomaFile" th:field="*{diploma}">
+                            <textarea rows="5" type="text" class="form-control input-lg" placeholder="Please enter your Diploma" name="diplomaFile" th:field="*{diploma}"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Grade Audit:</label>
-                            <input type="text" class="form-control input-lg" placeholder="Please Select Your Grade Audit" name="gradeFile" th:field="*{gradeAudit}">
+                            <textarea rows="5" type="text" class="form-control input-lg" placeholder="Please enter your Grade Audit" name="gradeFile" th:field="*{gradeAudit}"></textarea>
                         </div>
 
                         <input class="btn btn-lg btn-primary btn-block" value="Save" type="submit">

@@ -132,3 +132,17 @@ Student
     * Here you can view all the current applications students have made. 
     * You can click the Send Email button, to generate an email notification to the professor responsible for the Field Of Research that specific student applied to.
     
+## Project Milestone 3: (April 3,2020)
+* Professor Functionality:
+    * Professor can view the students who applied to their field of research.
+    * Professors can choose the students who they thinks are best, and they can submit a recommendation to the administrator.
+* Administrator Functionality:
+    * Administrator can view the professors recommendation, and accept the ones they chooses.
+
+* Unit and Integration Tests for all the functionalities
+
+* The Kanban
+
+* Issues and Code Reviews 
+
+* UML, ER diagram and Database Schema

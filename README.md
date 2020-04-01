@@ -133,6 +133,9 @@ Student
     * You can click the Send Email button, to generate an email notification to the professor responsible for the Field Of Research that specific student applied to.
     
 ## Project Milestone 3: (April 3,2020)
+* Security Functionality:
+  * Added authorization and authentication to the endpoints. 
+  * Only the specific role can view their given functionality, and a 403 error page is given to any other role trying to access that functionality.
 * Professor Functionality:
     * Professor can view the students who applied to their field of research.
     * Professors can choose the students who they thinks are best, and they can submit a recommendation to the administrator.

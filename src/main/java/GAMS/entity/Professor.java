@@ -8,6 +8,7 @@ public class Professor extends EndUser implements Serializable {
     private ArrayList<FieldOfResearch> fieldOfResearches;
     private String emailAddress;
 
+
     public Professor(String emailAddress,String username, String password, String confPassword, ArrayList<FieldOfResearch> fieldOfResearches) {
         super(username, password, confPassword, Role.PROFESSOR);
         this.fieldOfResearches = fieldOfResearches ;

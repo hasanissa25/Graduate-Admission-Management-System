@@ -42,7 +42,7 @@ public class AdminController {
         //go over the field research data
         //each research has students
 
-        //find the student based on the student id that iretrieved from the HTML
+        //find the student based on the student id that is retrieved from the HTML
         //once we find it then we know that student belong to that particular professor
         for (FieldOfResearch fieldOfResearch : all) {
             ArrayList<EndUser> students = fieldOfResearch.getStudents();

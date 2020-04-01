@@ -34,6 +34,9 @@
                 <li class="nav-item">
                     <a class="nav-link" sec:authorize="hasAuthority('ADMINISTRATOR')" href="StudentData.html" th:href="@{/StudentData}"> Current Student Applications</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" sec:authorize="hasAuthority('PROFESSOR')" href="StudentCandidates.html" th:href="@{/StudentCandidate}">Field of Research Candidates</a>
+                </li>
 
             </ul>
         </div>
@@ -73,11 +76,14 @@
         <script> $("#pageTitle").html("Fields of Research"); </script>
         <div th:replace="fieldOfResearch"/>
     </span>
+    <div th:case="'StudentCandidates'">
+        <script> $("#pageTitle").html("Field of Research Candidates"); </script>
+        <div th:replace="StudentCandidates"/>
+    </div>
     <div th:case="'StudentData'">
         <script> $("#pageTitle").html("Current Student Applications"); </script>
         <div th:replace="StudentData"/>
     </div>
-
     <div th:case="'index'">
         <script> $("#pageTitle").html("Graduate Admission Project"); </script>
         <div th:replace="index"/>

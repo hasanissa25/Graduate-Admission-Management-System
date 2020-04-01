@@ -1,72 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<div class="mx-auto py-5" style="width: 95%;">
-    <p th:if="${addError}" class="error text-danger text-center"> Student was not added. ERROR</p>
-    <div class="alert alert-success" role="alert"  th:if="${(param.message != null)}">
-        <p th:text="${param.message}"></p>
-    </div>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" >
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th>Email</th>
+        <th>Diploma</th>
+        <th>CV</th>
+        <th>Grade Audit</th>
 
-    <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-        <tr>
-            <th>Field of Research</th>
-            <th>Email</th>
-            <th>Diploma</th>
-            <th>CV</th>
-            <th>Grade Audit</th>
-            <th>Action</th>
-        </tr>
-        </thead>
+    </tr>
+    </thead>
 
-        <tbody>
-        <tr th:each="tempRes : ${dat}">
-            <td><span th:text="${tempRes.getName()}">Title</span></td>
+    <tbody>
+    <tr th:each="tempUser : ${dat2}">
 
-                <p th:each="tempUser : ${dat2}">
-                    <td th:text="${tempUser.email}" />
-                    <td th:text="${tempUser.diploma}"/>
-                    <td th:text="${tempUser.cv}"/>
-                    <td th:text="${tempUser.gradeAudit}"/>
+        <td th:text="${tempUser.email}" />
+        <td th:text="${tempUser.diploma}" />
+        <td th:text="${tempUser.cv}" />
+        <td th:text="${tempUser.gradeAudit}" />
 
+    </tr>
+    </tbody>
+</table>
 
-
-<!--                    <td>-->
-<!--                        <label for=${tempUser.id}>Enter Assessment:</label>-->
-<!--                        <select id=${tempUser.id}>-->
-<!--                            <option value="C1">Don’t recommend for admission</option>-->
-<!--                            <option value="C2">Recommend but not interested in supervision</option>-->
-<!--                            <option value="C3">Recommend but no funding</option>-->
-<!--                            <option value="C4">Recommend and yes to funding</option>-->
-<!--                        </select>-->
-<!--                    </td>-->
+<div th:fragment="Students">
+    <div class="container-fluid py-2">
+        <div class="row">
+            <div class="col-md-9 mx-auto">
+                <form class="card card-body" th:action="@{/StudentCandidate}" th:object="${candidate}" method="post">
+                    <h3>Create new candidate: </h3>
+                    <fieldset>
+                        <div class="form-group">
+                            <input class="form-control input-lg" placeholder="Enter Email " name="email" type="text" th:field="*{email}" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control input-lg" placeholder="Enter the decision" name="decision" type="text" th:field="*{decision}" required>
+                        </div>
 
 
-            <div class="form-group">
-                <select form="form-formStudent" class="form-control input-lg" multiple="multiple" name="restrictions" th:field="*{restrictions}">
-                    <option disabled th:value="'0'">Enter Assessment:</option>
-                    <option th:value="C1">Don’t recommend for admission</option>
-                    <option th:value="C2">Recommend but not interested in supervision</option>
-                    <option th:value="C3">Recommend but no funding</option>
-                    <option th:value="C4">Communications Engineering</option>
-
-                </select>
-
+                        <input class="btn btn-lg btn-primary btn-block" value="save1" type="submit">
+                    </fieldset>
+                </form>
             </div>
-
-
-
-
-<!--            <div class="form-group">-->
-<!--                <label>Diploma:</label>-->
-<!--                <input type="text" class="form-control input-lg" placeholder="Please Select Your Diploma" name="diplomaFile" th:field="*{C1}">-->
-<!--            </div>-->
-
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <div class="form-group">
-        <button type="submit" class="btn btn-lg btn-primary btn-block"> Submit</button>
+        </div>
     </div>
 </div>
+
+
+
 </html>

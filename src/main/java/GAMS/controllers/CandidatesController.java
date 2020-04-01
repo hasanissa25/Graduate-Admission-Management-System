@@ -1,8 +1,11 @@
 package GAMS.controllers;
 
+import GAMS.Crudrepository.CandidateRepo;
+import GAMS.Crudrepository.EndUserRepo;
 import GAMS.Crudrepository.FieldOfResearchRepo;
 import GAMS.Crudrepository.StudentRepo;
 import GAMS.email.EmailService;
+import GAMS.entity.Candidate;
 import GAMS.entity.EndUser;
 import GAMS.entity.FieldOfResearch;
 import GAMS.entity.Student;
@@ -14,6 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 @Controller
@@ -23,11 +28,18 @@ public class CandidatesController {
     private StudentRepo studentRepo;
 
     @Autowired
+    private CandidateRepo candidateRepo;
+
+    @Autowired
+    private EndUserRepo endUserRepo;
+
+    @Autowired
     private FieldOfResearchRepo fieldOfResearchRepo;
 
 
-    @GetMapping("/StudentCandidates")
-    public String ListOfCandidates(Model model) {
+    @GetMapping("/StudentCandidate")
+    public String createit(Model model, HttpServletRequest request) {
+
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         Iterable<FieldOfResearch> all = fieldOfResearchRepo.findAll();
@@ -43,30 +55,22 @@ public class CandidatesController {
 
         model.addAttribute("dat2", all2);
 
+
+        model.addAttribute("candidate",new Candidate());
         model.addAttribute("view", "StudentCandidates");
         return "layout";
-
     }
 
-    //make new html page for administrator to send email to student depending on their decision from prof
     @PostMapping("/StudentCandidate")
-    public String saveDecision(@ModelAttribute Student formStudent, Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Student student = studentRepo.findByUsername(auth.getName());
+    public String saveEmployeee(@ModelAttribute Candidate candidate, Model model) {
 
-        if(student == null){
-            // This is an error because the student is supposed to exist in DB
-            model.addAttribute("view", "index");
-            return "layout";
-        }
-        else{
-            formStudent.setDecision(student.getDecision());
-            studentRepo.save(formStudent);
-            studentRepo.delete(student);
 
-            model.addAttribute("view", "index");
-            return "redirect:";
-        }
+        candidateRepo.save(candidate);
+
+        return "redirect:";
+
+
+
 
     }
 

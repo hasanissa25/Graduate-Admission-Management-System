@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 //This is how we interface with the database and do our object relational mapping
 @Repository
-public interface CandidateRepo extends CrudRepository<Candidate, String > {
+public interface CandidateRepo extends CrudRepository<Candidate, Long > {
 }

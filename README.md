@@ -140,7 +140,7 @@ Student
     * Professor can view the students who applied to their field of research.
     * Professors can choose the students who they thinks are best, and they can submit a recommendation to the administrator.
 * Administrator Functionality:
-    * Administrator can view the professors recommendation, and accept the ones they chooses.
+    * Administrator can view the professors recommendation, and accept the ones they choose.
 
 * Unit and Integration Tests for all the functionalities
 

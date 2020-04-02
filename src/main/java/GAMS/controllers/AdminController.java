@@ -1,13 +1,11 @@
 package GAMS.controllers;
 
+import GAMS.Crudrepository.CandidateRepo;
 import GAMS.Crudrepository.EmailRepo;
 import GAMS.Crudrepository.FieldOfResearchRepo;
 import GAMS.Crudrepository.StudentRepo;
 import GAMS.email.EmailService;
-import GAMS.entity.Email;
-import GAMS.entity.EndUser;
-import GAMS.entity.FieldOfResearch;
-import GAMS.entity.Student;
+import GAMS.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,7 +31,23 @@ public class AdminController {
     private FieldOfResearchRepo fieldOfResearchRepo;
 
     @Autowired
+    private CandidateRepo candidateRepo;
+    @Autowired
     private EmailRepo emailRepo;
+
+    @GetMapping("/sendEmailToStudent/{id}")
+    public String sendEmailToStuden(@PathVariable(value = "id") Long candidateId, Model model)
+    {
+        Candidate candidate = candidateRepo.findById(candidateId).get();
+
+        try {
+            emailService.sendSimpleMessage(candidate.getEmail(),"admin@test.com","Field of research status","Hello ,decision have been made" +
+                    " for your application. The decision :" + candidate.getDecision());
+        } catch (Exception e) {
+            return "redirect:/Decisions?message=Email not sent.";
+        }
+        return "redirect:/Decisions?message=Email sent to student:"+candidate.getEmail();
+    }
 
     @GetMapping("/sendEmail/{id}")
     public String sendEmailToProfessor(@PathVariable(value = "id") Long studentId, Model model) {

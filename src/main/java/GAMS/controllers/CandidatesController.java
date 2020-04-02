@@ -1,13 +1,8 @@
 package GAMS.controllers;
 
-import GAMS.Crudrepository.CandidateRepo;
-import GAMS.Crudrepository.EndUserRepo;
-import GAMS.Crudrepository.FieldOfResearchRepo;
-import GAMS.Crudrepository.StudentRepo;
-import GAMS.email.EmailService;
+import GAMS.Crudrepository.*;
 import GAMS.entity.Candidate;
-import GAMS.entity.EndUser;
-import GAMS.entity.FieldOfResearch;
+import GAMS.entity.Email;
 import GAMS.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -31,32 +26,25 @@ public class CandidatesController {
     private CandidateRepo candidateRepo;
 
     @Autowired
-    private EndUserRepo endUserRepo;
-
-    @Autowired
-    private FieldOfResearchRepo fieldOfResearchRepo;
+    private EmailRepo emailRepo;
 
 
     @GetMapping("/StudentCandidate")
     public String createit(Model model, HttpServletRequest request) {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String profName = auth.getName();
 
-        Iterable<FieldOfResearch> all = fieldOfResearchRepo.findAll();
-        Iterable<Student> all2 = studentRepo.findAll();
-        List<FieldOfResearch> active = new ArrayList<>();
+        Iterable<Email> allEmailsToProf = emailRepo.findAllByToField(profName);
 
-        for(FieldOfResearch research : all){
-            if(research.isActive()){
-                active.add(research);
-            }
+        List<Student> allStudentsApplied = new ArrayList<>();
+
+        for(Email email : allEmailsToProf) {
+            Student student = studentRepo.findByUsername(email.getFromField());
+            allStudentsApplied.add(student);
         }
-        model.addAttribute("dat", active);
 
-        model.addAttribute("dat2", all2);
-
-
-
+        model.addAttribute("dat2", allStudentsApplied);
         model.addAttribute("candidate",new Candidate());
         model.addAttribute("view", "StudentCandidates");
         return "layout";
@@ -65,13 +53,9 @@ public class CandidatesController {
     @PostMapping("/StudentCandidate")
     public String saveEmployeee(@ModelAttribute Candidate candidate, Model model) {
 
-
         candidateRepo.save(candidate);
 
         return "redirect:StudentCandidate";
-
-
-
 
     }
 

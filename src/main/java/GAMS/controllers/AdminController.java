@@ -82,15 +82,19 @@ public class AdminController {
 
     }
 
-
-
     @GetMapping("/StudentData")
     public String list(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
-        Iterable<Student> all = studentRepo.findAll();
+        Iterable<Student> allStudentsInRepo = studentRepo.findAll();
+        List<Student> toShowStudents = new ArrayList<>();
 
-        model.addAttribute("dat",all);
+        for(Student student: allStudentsInRepo) {
+            if(student.getHasProfile() && student.getHasFOR())
+                toShowStudents.add(student);
+        }
+
+        model.addAttribute("dat",toShowStudents);
 
         model.addAttribute("view", "StudentData");
         return "layout";

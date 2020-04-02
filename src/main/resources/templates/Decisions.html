@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"  xmlns:th="http://www.thymeleaf.org" >
+
+<div class="alert alert-success" role="alert"  th:if="${(param.message != null)}">
+    <p th:text="${param.message}"></p>
+</div>
 <table class="table table-bordered table-striped">
     <thead class="thead-dark">
     <tr>
         <th>Email</th>
         <th>Professor decision</th>
+        <th>Action</th>
 
 
 
@@ -17,6 +22,9 @@
 
         <td th:text="${tempUser.email}" />
         <td th:text="${tempUser.decision}" />
+
+        <td><a th:href="@{/sendEmailToStudent/{id}(id=${tempUser.id})}" class="btn btn-primary">Send Email</a></td>
+
 
 
     </tr>

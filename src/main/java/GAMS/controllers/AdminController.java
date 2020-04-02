@@ -1,8 +1,10 @@
 package GAMS.controllers;
 
+import GAMS.Crudrepository.EmailRepo;
 import GAMS.Crudrepository.FieldOfResearchRepo;
 import GAMS.Crudrepository.StudentRepo;
 import GAMS.email.EmailService;
+import GAMS.entity.Email;
 import GAMS.entity.EndUser;
 import GAMS.entity.FieldOfResearch;
 import GAMS.entity.Student;
@@ -30,9 +32,11 @@ public class AdminController {
     @Autowired
     private FieldOfResearchRepo fieldOfResearchRepo;
 
+    @Autowired
+    private EmailRepo emailRepo;
+
     @GetMapping("/sendEmail/{id}")
     public String sendEmailToProfessor(@PathVariable(value = "id") Long studentId, Model model) {
-
 
         Student student = studentRepo.findById(studentId);
 
@@ -64,6 +68,8 @@ public class AdminController {
                 message = message + " CV:" + student.getCv() + " , Diploma:" + student.getDiploma() + " , Grade:" + student.getGradeAudit();
 
                 emailService.sendSimpleMessage(fieldOfResearchFound.getProfessor().getEmailAddress(), "test@gmail.com", "Student Interest in your research", message);
+                Email emailMessage = new Email(fieldOfResearchFound.getProfessor().getUsername(), student.getUsername());
+                emailRepo.save(emailMessage);
 
                 return "redirect:/StudentData?message=Email Sent to :" + fieldOfResearchFound.getProfessor().getEmailAddress();
             } catch (Exception e) {

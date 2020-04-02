@@ -44,14 +44,13 @@ public class FieldOfResearchController {
 
         EndUser user = userRepository.findByUsername(auth.getName());
 
-                research.setProfessor(new Professor(research.getEmailAddress(),user.getUsername(),user.getPassword(),user.getConfPassword(),null));
+        research.setProfessor(new Professor(research.getEmailAddress(),user.getUsername(),user.getPassword(),user.getConfPassword(),null));
 
-                research.setStudents(new ArrayList<EndUser>());
+        research.setStudents(new ArrayList<EndUser>());
 
-
-            research.activate();
-            researchRepository.save(research);
-            return "redirect:fieldOfResearch";
+        research.activate();
+        researchRepository.save(research);
+        return "redirect:fieldOfResearch";
 
     }
 

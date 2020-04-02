@@ -140,7 +140,14 @@ Student
     * Professor can view the students who applied to their field of research.
     * Professors can choose the students who they thinks are best, and they can submit a recommendation to the administrator.
 * Administrator Functionality:
+    * By clicking the Decision Release you can view all the emails of the student along with the recommendation that the professor have made for each Student which 
+        includes:
+       . Don't recommend for admission.
+       . Recommended but not interested in supervision.
+       . Recommend but no funding.
+       . Recommend and yes to funding
     * Administrator can view the professors recommendation, and accept the ones they choose.
+    * You can click the send Email button, to generate an email notification to the student about what have been recommended for them.
 
 * Unit and Integration Tests for all the functionalities
 

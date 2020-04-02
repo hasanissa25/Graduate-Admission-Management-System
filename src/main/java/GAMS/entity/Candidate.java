@@ -15,6 +15,11 @@ public class Candidate  {
     private String decision;
     private String email;
 
+
+
+
+
+
     public Long getId() {
         return id;
     }
@@ -43,6 +48,7 @@ public class Candidate  {
 
         this.decision =decision;
         this.email = email;
+
     }
 
     public Candidate() {

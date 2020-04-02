@@ -15,6 +15,7 @@
                 <h1><a class="nav-link" sec:authorize="hasAuthority('PROFESSOR')" href="StudentCandidates.html" th:href="@{/StudentCandidate}">Field of Research Candidates</a></h1>
                 <h1><a class="nav-link" sec:authorize="hasAuthority('ADMINISTRATOR')" href="StudentData.html" th:href="@{/StudentData}">Current Student Applications</a></h1>
                 <h1><a class="nav-link" sec:authorize="hasAuthority('STUDENT')" href="studentInfo.html" th:href="@{/studentInfo}">Current Application</a></h1>
+                <h1><a class="nav-link" sec:authorize="hasAuthority('ADMINISTRATOR')" href="Decisions.html" th:href="@{/Decisions}">Decision release</a></h1>
             </div>
         </div>
     </div>

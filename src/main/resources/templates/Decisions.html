@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" >
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th>Email</th>
+        <th>Professor decision</th>
+
+
+
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="tempUser : ${dat3}">
+
+        <td th:text="${tempUser.email}" />
+        <td th:text="${tempUser.decision}" />
+
+
+    </tr>
+
+
+    </tbody>
+</table>
+
+
+
+
+
+</html>

@@ -156,3 +156,70 @@ Student
 * Issues and Code Reviews 
 
 * UML, ER diagram and Database Schema
+
+
+    
+## Database Schema for Milestone 2:
+
+FieldOfResearch
+
+* id
+* description
+* emailAddress
+
+EndUser
+
+* id
+* confPassword
+* password
+* role
+* username 
+
+Student
+
+* id
+* email
+* cv
+* diploma
+* grade audit
+
+
+## Steps To Verify Functionality (For the marking TA)
+* Run the application: https://group3-gams.herokuapp.com/login
+* **Professor Functionality**: Create a Field of Research.    
+    * Click Register Now, to go to the registration page.
+    * For Role, choose the Professor Role, and any username and password combination. (Case Sensitive)
+    * Login using the Professor account created in the previous step.
+    * Click Create Field Of Research, to be redirected to the creation page of field of research.
+    * Enter the desired Title and Description for your field of research and click Add Field Of Research to submit it.
+    * Click logout at the top right of the page to prepare for the next step.
+    
+* **Student Functionality**: Create a student profile, and request to join an existing field of research.
+    * Click Register Now, to go to the registration page.
+    * For Role, choose the Student Role, and any username and password combination. (Case Sensitive)
+    * Login using the Student account created in the previous step.
+    * Click Create Student profile, to be redirected to the student profile creation page.
+    * Enter an Email, CV, Diploma, and your Grade Audit. (Currently set to text fields but will be made into documents in the upcoming milestones), and click Save to submit.
+    * Click Available Fields Of Research, click the Actions button on the field of research you are interested in, and click Select, to request to join.
+    * Click Home at the top left of the screen, and click Current Application. You can now see your student profile, including the fields of research you applied to.
+    
+* **Administrator Functionality**: View current Student Applications and send email to the professor.
+    * Click Register Now, to go to the registration page.
+    * For Role, choose the Administrator Role, and any username and password combination. (Case Sensitive)
+    * Login using the Administrator account created in the previous step.
+    * Click Current Student Applications
+    * Here you can view all the current applications students have made. 
+    * You can click the Send Email button, to generate an email notification to the professor responsible for the Field Of Research that specific student applied to.
+    
+* **Professor Functionality**: View the students profile selected by the administrator and make a decision.
+    * Login using the Professor account created in the previous step.
+    * Click Field of Research Candidates
+    * Here you can view all the students profiles that the administrator recommended. 
+    * Now the professor can post their decision along with the email of particular student.
+    
+* **Administrator Functionality**: Can view the professor decision and then send the decision to the student as a email.
+    * Login using the Administrator account created in the previous step.
+    * Click Decision Release
+    * Here you can view all the student recommendations made by the professor.
+    * You can click the Send Email button, to generate an email notification to the student containing the decision made by the professor.    
+    

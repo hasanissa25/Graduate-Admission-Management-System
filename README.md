@@ -159,7 +159,7 @@ Student
 
 
 
-## Database Schema for Milestone 2:
+## Database Schema for Milestone 3:
 
 FieldOfResearch
 

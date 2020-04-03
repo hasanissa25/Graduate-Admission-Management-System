@@ -158,7 +158,7 @@ Student
 * UML, ER diagram and Database Schema
 
 
-    
+
 ## Database Schema for Milestone 2:
 
 FieldOfResearch
@@ -177,11 +177,33 @@ EndUser
 
 Student
 
-* id
 * email
 * cv
 * diploma
 * grade audit
+* hasFOR
+* hasProfile
+
+Professor
+
+* fieldOfResearches
+* emailAddress
+
+Candidate
+
+* id
+* decision
+* email
+
+Email 
+
+* id
+* toField
+* fromField
+* readFlag
+
+![ERDigram Milestone 3](https://user-images.githubusercontent.com/34280127/78344253-1fe05480-756a-11ea-87a5-2bcfa7a22f16.JPG)
+
 
 
 ## Steps To Verify Functionality (For the marking TA)
@@ -223,3 +245,4 @@ Student
     * Here you can view all the student recommendations made by the professor.
     * You can click the Send Email button, to generate an email notification to the student containing the decision made by the professor.    
     
+* Note: All the functionalities mentioned in the Project description were completed

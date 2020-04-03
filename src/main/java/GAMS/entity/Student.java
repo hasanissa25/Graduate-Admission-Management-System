@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 @Entity
 public class Student extends EndUser implements Serializable {
@@ -44,14 +43,20 @@ public class Student extends EndUser implements Serializable {
     private String gradeAudit;
     private String decision;
     private Assessment assessment;
+    private Boolean hasFOR;
+    private Boolean hasProfile;
 
     public Student() {
         super();
+        this.hasFOR = false;
+        this.hasProfile = false;
         setRole(Role.STUDENT);
     }
 
     public Student(String username, String password, String confPassword) {
         super(username, password, confPassword, Role.STUDENT);
+        this.hasFOR = false;
+        this.hasProfile = false;
     }
 
     public Student(String username, String password, String confPassword, String email,
@@ -61,6 +66,8 @@ public class Student extends EndUser implements Serializable {
         this.cv = cv;
         this.diploma = diploma;
         this.gradeAudit = gradeAudit;
+        this.hasFOR = false;
+        this.hasProfile = false;
     }
 
     public Student(String username, String password, String confPassword, String email,
@@ -68,6 +75,8 @@ public class Student extends EndUser implements Serializable {
         super(username, password, confPassword, Role.STUDENT);
         this.email = email;
         this.assessment = assessment;
+        this.hasFOR = false;
+        this.hasProfile = false;
     }
 
     public void setEmail(String email) {
@@ -118,6 +127,21 @@ public class Student extends EndUser implements Serializable {
         this.assessment = assessment;
     }
 
+    public Boolean getHasFOR() {
+        return hasFOR;
+    }
+
+    public void setHasFOR(Boolean hasFOR) {
+        this.hasFOR = hasFOR;
+    }
+
+    public Boolean getHasProfile() {
+        return hasProfile;
+    }
+
+    public void setHasProfile(Boolean hasProfile) {
+        this.hasProfile = hasProfile;
+    }
 
     @Override
     public Long getId() {
@@ -128,4 +152,5 @@ public class Student extends EndUser implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
 }

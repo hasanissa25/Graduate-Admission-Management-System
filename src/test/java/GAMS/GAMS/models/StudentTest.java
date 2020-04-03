@@ -52,4 +52,26 @@ public class StudentTest {
         student.setGradeAudit("gradeAudit2");
         assertEquals("gradeAudit2", student.getGradeAudit());
     }
+
+    @Test
+    public void getHasFOR() {
+        assertEquals(false, student.getHasFOR());
+    }
+
+    @Test
+    public void setHasFOR() {
+        student.setHasFOR(true);
+        assertEquals(true, student.getHasFOR());
+    }
+
+    @Test
+    public void getHasProfile() {
+        assertEquals(false, student.getHasProfile());
+    }
+
+    @Test
+    public void setHasProfile() {
+        student.setHasProfile(true);
+        assertEquals(true, student.getHasProfile());
+    }
 }

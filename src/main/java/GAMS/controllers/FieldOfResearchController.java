@@ -1,5 +1,6 @@
 package GAMS.controllers;
 
+import GAMS.Crudrepository.StudentRepo;
 import GAMS.entity.EndUser;
 import GAMS.entity.FieldOfResearch;
 import GAMS.entity.Professor;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.annotation.security.RolesAllowed;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +28,9 @@ public class FieldOfResearchController {
 
     @Autowired
     private EndUserRepo userRepository;
+
+    @Autowired
+    private StudentRepo studentRepo;
 
     @GetMapping("/createFOR")
     public String create(Model model) {
@@ -90,11 +93,19 @@ public class FieldOfResearchController {
     @PostMapping("/select")
     public String selectResearch(Model model, FieldOfResearch joinResearch){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        EndUser user = userRepository.findByUsername(auth.getName());
+        Student student = studentRepo.findByUsername(auth.getName());
+        if(student == null) {
+            EndUser endUser = userRepository.findByUsername(auth.getName());
+            student = new Student(endUser.getUsername(), endUser.getPassword(), endUser.getConfPassword());
+            userRepository.delete(endUser);
+        }
 
         FieldOfResearch temp = researchRepository.findByName(joinResearch.getName());
-        temp.addStudent(user);
+        temp.addStudent(student);
         researchRepository.save(temp);
+
+        student.setHasFOR(true);
+        userRepository.save(student);
 
         return "redirect:fieldOfResearch";
     }
